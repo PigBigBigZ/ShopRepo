@@ -37,6 +37,14 @@ public class GoodsBizImpl implements GoodsBiz {
 		
 	}
 
+
+
+	@Override
+	public void findAllGoods() {
+		dao.findAll();
+		
+	}
+
 	
    
 }

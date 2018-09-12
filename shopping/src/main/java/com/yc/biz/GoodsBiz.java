@@ -5,7 +5,8 @@ import com.yc.bean.Goods;
 public interface GoodsBiz {
     public void addGoods(Goods goods);
     
-    
     public void updataGoods();
+    
+    public void findAllGoods();
     
 }

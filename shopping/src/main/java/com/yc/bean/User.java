@@ -1,6 +1,18 @@
 package com.yc.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
+	@Id  //主键注解
+	@GeneratedValue(strategy=GenerationType.AUTO)  //配置主键值生成机制
 	private Integer Uid;
 	private String Uname;
 	private String Upass;
@@ -11,6 +23,8 @@ public class User {
 	private String cid;
 	private String head;
 	private double account;
+	@OneToOne
+	@JoinColumn(name="rid")
 	private Role role;
 	private Integer paypass;
 	public Integer getUid() {

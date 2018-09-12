@@ -1,7 +1,11 @@
 package com.yc.bean;
 
-public class Role {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Role {
+	@Id
 	private Integer rid;
 
 	public Integer getRid() {
