@@ -1,8 +1,15 @@
 package com.yc.bean;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Gtype {
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer typeid;
-	private Goods goods;
 	private String typename;
 	private Integer pid;
 
@@ -12,14 +19,6 @@ public class Gtype {
 
 	public void setTypeid(Integer typeid) {
 		this.typeid = typeid;
-	}
-
-	public Goods getGoods() {
-		return goods;
-	}
-
-	public void setGoods(Goods goods) {
-		this.goods = goods;
 	}
 
 	public String getTypename() {
@@ -40,7 +39,7 @@ public class Gtype {
 
 	@Override
 	public String toString() {
-		return "Gtype [typeid=" + typeid + ", goods=" + goods + ", typename="
+		return "Gtype [typeid=" + typeid + ", typename="
 				+ typename + ", pid=" + pid + "]";
 	}
 
