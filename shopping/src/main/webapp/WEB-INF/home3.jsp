@@ -9,14 +9,14 @@
 
 		<title>首页</title>
 
-		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+		<link href="../../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="../../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
 
-		<link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
+		<link href="../../basic/css/demo.css" rel="stylesheet" type="text/css" />
 
-		<link href="../css/hmstyle.css" rel="stylesheet" type="text/css" />
-		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link href="../../css/hmstyle.css" rel="stylesheet" type="text/css" />
+		<script src="../../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="../../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 	</head>
 
@@ -771,20 +771,48 @@
                                   <img src="../images/act1.png " />								
 							</a>
 						</div>
-						
-						
-								
-									<div >
-										${Gname }
-									</div>
-									<div >
-										${Gprice }
+						<div class="am-u-sm-7 am-u-md-5 am-u-lg-4">
+							<div class="text-two">
+								<div class="outer-con ">
+									<div class="title ">
+										雪之恋和风大福
+									</div>									
+									<div class="sub-title ">
+										仅售：¥13.8
 									</div>
 									
-								
-								<a href="# "><img src="../images/${imgname } " /></a>
-						   
+								</div>
+								<a href="# "><img src="../images/act2.png " /></a>
+							</div>
+							<div class="text-two last">
+								<div class="outer-con ">
+									<div class="title ">
+										雪之恋和风大福
+									</div>
+									<div class="sub-title ">
+										仅售：¥13.8
+									</div>
+									
+								</div>
+								<a href="# "><img src="../images/act2.png " /></a>
+						    </div>
+						</div>
 						
+						<div class="am-u-sm-12 am-u-md-4 ">
+						
+						<div class="text-two last">
+								<div class="outer-con ">
+									<div class="title ">
+										雪之恋和风大福
+									</div>
+									<div class="sub-title ">
+										仅售：¥13.8
+									</div>
+									
+								</div>
+								<a href="# "><img src="/shopping/images/${imgname }" /></a>
+						    </div>
+						</div>
 						
 					<!-- 	
 		             <div class="am-u-sm-12 am-u-md-4 ">
@@ -881,11 +909,11 @@
 						<div class="am-u-sm-7 am-u-md-4 am-u-lg-2 text-two">
 								<div class="outer-con ">
 									<div class="title ">
-										${Gname }
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
-										${Gprice }
+										仅售：¥13.8
 									</div>
 								</div>
 								<a href="# "><img src="../images/5.jpg " /></a>						
@@ -918,7 +946,7 @@
 						<div class="am-u-sm-6 am-u-md-4 am-u-lg-2 text-two ">
 								<div class="outer-con ">
 									<div class="title ">
-										aa
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
@@ -930,7 +958,7 @@
 						<div class="am-u-sm-6 am-u-md-3 am-u-lg-2 text-four ">
 								<div class="outer-con ">
 									<div class="title ">
-										aa之恋和风大福
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
