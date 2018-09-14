@@ -1,5 +1,6 @@
 package com.yc.biz.impl;
 
+<<<<<<< HEAD
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -139,5 +140,10 @@ public class UserBizImpl implements UserBiz{
 		}
 	}
 
+=======
+import com.yc.biz.UserBiz;
+
+public class UserBizImpl implements UserBiz {
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 
 }

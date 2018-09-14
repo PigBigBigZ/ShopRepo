@@ -1,5 +1,6 @@
 package com.yc.biz;
 
+<<<<<<< HEAD
 
 import javax.servlet.http.HttpSession;
 
@@ -16,4 +17,8 @@ public interface UserBiz{
 	
 	public int checkuserinput (HttpSession session,String phone,String uname,String email);
 
+=======
+public interface UserBiz {
+	
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 }

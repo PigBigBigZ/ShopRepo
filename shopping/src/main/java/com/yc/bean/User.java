@@ -1,12 +1,30 @@
 package com.yc.bean;
 
+<<<<<<< HEAD
 import javax.persistence.*;
 
 @Entity //实体类注解
 @Table(name="user") //配置表名
+=======
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 public class User {
+<<<<<<< HEAD
 	@Id //主键注解
 	@GeneratedValue(strategy=GenerationType.AUTO) //配置主键值的生成机制
+=======
+	@Id  //主键注解
+	@GeneratedValue(strategy=GenerationType.AUTO)  //配置主键值生成机制
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 	private Integer Uid;
 	private String uname;
 	private String upass;
@@ -17,7 +35,10 @@ public class User {
 	private String cid;
 	private String head;
 	private double account;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 	@OneToOne
 	@JoinColumn(name="rid")
 	private Role role;

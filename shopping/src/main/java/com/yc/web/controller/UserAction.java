@@ -1,5 +1,6 @@
 package com.yc.web.controller;
 
+<<<<<<< HEAD
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -116,5 +117,13 @@ public class UserAction {
 	
 	
 
+=======
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class UserAction {
+
+	
+>>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 	
 }
