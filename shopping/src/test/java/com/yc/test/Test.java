@@ -1,5 +1,6 @@
 package com.yc.test;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ import com.yc.HelloApplication;
 import com.yc.bean.Goods;
 import com.yc.bean.Gtype;
 import com.yc.bean.Image;
+import com.yc.bean.ShopAndImg;
 import com.yc.biz.impl.GoodsBizImpl;
 import com.yc.dao.ImageDao;
 
@@ -52,15 +54,22 @@ public class Test {
 		dao.save(image);
 
 	}
+	
+	@org.junit.Test
+	public void testFindAllGoods2(){
+		//List<Object> list=biz.findAllGoods();
+	}
+	
 
 	@org.junit.Test
 	public void testFindAllGoods() {
-		List<Map<String, Object>> list=new ArrayList<Map<String, Object>>();
-		list=biz.findAllGoods();
+		List<Object[]> list=biz.findAllGoods();
 		if(list!=null && list.size()>0){
-		for(Map<String, Object> map:list){
-			 System.out.println(map);
-			 
+		for(Object[] map:list){
+			  //map.toString();
+			 // System.out.println(map.toString());
+			 String path=(String) map[2];
+			 System.out.println(path);
 		}
 		}
 	}
