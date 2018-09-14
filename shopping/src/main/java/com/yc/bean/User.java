@@ -1,18 +1,28 @@
 package com.yc.bean;
 
+import javax.persistence.*;
+
+@Entity //实体类注解
+@Table(name="user") //配置表名
 public class User {
+	@Id //主键注解
+	@GeneratedValue(strategy=GenerationType.AUTO) //配置主键值的生成机制
 	private Integer Uid;
-	private String Uname;
-	private String Upass;
-	private String Phone;
-	private String Email;
+	private String uname;
+	private String upass;
+	private String phone;
+	private String email;
 	private char Sex;
 	//身份证id
 	private String cid;
 	private String head;
 	private double account;
+	
+	@OneToOne
+	@JoinColumn(name="rid")
 	private Role role;
 	private Integer paypass;
+	
 	public Integer getUid() {
 		return Uid;
 	}
@@ -20,28 +30,28 @@ public class User {
 		Uid = uid;
 	}
 	public String getUname() {
-		return Uname;
+		return uname;
 	}
 	public void setUname(String uname) {
-		Uname = uname;
+		this.uname = uname;
 	}
 	public String getUpass() {
-		return Upass;
+		return upass;
 	}
 	public void setUpass(String upass) {
-		Upass = upass;
+		this.upass = upass;
 	}
 	public String getPhone() {
-		return Phone;
+		return phone;
 	}
 	public void setPhone(String phone) {
-		Phone = phone;
+		this.phone = phone;
 	}
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
 	public char getSex() {
 		return Sex;
@@ -79,13 +89,14 @@ public class User {
 	public void setPaypass(Integer paypass) {
 		this.paypass = paypass;
 	}
+	
 	@Override
 	public String toString() {
-		return "User [Uid=" + Uid + ", Uname=" + Uname + ", Upass=" + Upass
-				+ ", Phone=" + Phone + ", Email=" + Email + ", Sex=" + Sex
-				+ ", cid=" + cid + ", head=" + head + ", account=" + account
-				+ ", role=" + role + ", paypass=" + paypass + "]";
+		return "User [Uid=" + Uid + ", uname=" + uname + ", upass=" + upass + ", phone=" + phone + ", email=" + email
+				+ ", Sex=" + Sex + ", cid=" + cid + ", head=" + head + ", account=" + account + ", role=" + role
+				+ ", paypass=" + paypass + "]";
 	}
+
 	
 	
 
