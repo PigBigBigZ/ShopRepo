@@ -1,5 +1,8 @@
 package com.yc.test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -9,49 +12,56 @@ import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.HelloApplication;
-import com.yc.bean.Address;
 import com.yc.bean.Goods;
 import com.yc.bean.Gtype;
 import com.yc.bean.Image;
-import com.yc.bean.User;
-import com.yc.biz.impl.AddressBizImpl;
 import com.yc.biz.impl.GoodsBizImpl;
+import com.yc.dao.ImageDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Import(HelloApplication.class)
 public class Test {
 	@Resource
-    GoodsBizImpl biz;
-	
-	
-	
+	GoodsBizImpl biz;
+	@Resource
+	ImageDao dao;
+
 	@org.junit.Test
-   public void testAddGoods(){
-	   Goods goods=new Goods();
+	public void testAddGoods() {
+		Goods goods = new Goods();
 		goods.setGname("好吃点");
 		goods.setGprice(16.0);
 		goods.setGsail(15);
 		goods.setGcount(100);
-		Gtype gtype=new Gtype();
+		Gtype gtype = new Gtype();
 		gtype.setTypeid(2);
-	    goods.setGtype(gtype);
-	    Image image=new Image();
-	    image.setImgid(1);
-	    goods.setImage(image);
-	    biz.addGoods(goods);
-   }
-	
-	@Resource
-    AddressBizImpl aBizImplbiz;
+		goods.setGtype(gtype);
+		Image image = new Image();
+		image.setImgid(1);
+		goods.setImage(image);
+		biz.addGoods(goods);
+	}
+
 	@org.junit.Test
-	public void testAddAddress(){
-		Address address = new Address();
-		address.setAddress("湖南工学院33");
-		address.setPhone("15022012345");
-		User user = new User();
-		user.setUid(1);
-		address.setUser(user);
-		aBizImplbiz.addAddress(address);
+	public void testAddImage() {
+		Image image = new Image();
+		image.setImgname("shy");
+		image.setImgtype(1);
+		image.setPath("d:/shy");
+		dao.save(image);
+
+	}
+
+	@org.junit.Test
+	public void testFindAllGoods() {
+		List<Map<String, Object>> list=new ArrayList<Map<String, Object>>();
+		list=biz.findAllGoods();
+		if(list!=null && list.size()>0){
+		for(Map<String, Object> map:list){
+			 System.out.println(map);
+			 
+		}
+		}
 	}
 }
