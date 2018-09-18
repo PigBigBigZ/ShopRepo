@@ -1,6 +1,6 @@
 package com.yc.web.controller;
 
-<<<<<<< HEAD
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yc.bean.User;
 import com.yc.biz.UserBiz;
+import com.yc.biz.impl.BizException;
 import com.yc.utils.GetMessageUtils;
 
 
@@ -43,39 +44,26 @@ public class UserAction {
 
 	
 	@RequestMapping("registerByEmail.do")
-	public ModelAndView registerByEmail(String email,String uname,String upass,String phone,HttpSession session){
+	public ModelAndView registerByEmail(String email,String uname,String upass,String reupass,String ecode,HttpSession session){
+		session.setAttribute("reguname", uname);
+		session.setAttribute("regemail", email);
 		ModelAndView mav;
-		
-			int i=ubiz.checkuserinput(session, phone,uname, email);
-			System.out.println(i);
-			switch(i){
-			case 1 :
-				System.out.println(1);
-				mav = new ModelAndView("redirect:home/register.jsp");
-				mav.addObject("msg","用户名已注册!");
-				break;
-			case 2 :
-				System.out.println(2);
-				mav = new ModelAndView("redirect:home/register.jsp");
-				mav.addObject("msg","邮箱已注册!");
-				break;
-			case 3 :
-				System.out.println(3);
-				mav = new ModelAndView("redirect:home/register.jsp");
-				mav.addObject("msg","手机号已注册!");
-				break;
-			default :
-				System.out.println("default");
-				if(ubiz.regByEmail(email,uname,upass)){
-					mav = new ModelAndView("redirect:home/login.jsp");
-				}else{
-					mav = new ModelAndView("redirect:home/register.jsp");
-					mav.addObject("msg","用户注册失败!");
-				}
-				break;
-			}
-		
-		
+		User user = new User();
+		user.setUname(uname);
+		user.setUpass(upass);
+		user.setPhone(email);
+		try {
+			ubiz.regByEmail(email, uname, upass, reupass, ecode, session);
+			mav = new ModelAndView("redirect:home/login.jsp");
+		} catch (BizException e) {
+			e.printStackTrace();
+			//获取报错信息
+			String msg = e.getMessage();
+			//跳转注册页面
+			mav = new ModelAndView("redirect:home/register.jsp");
+			mav.addObject("msg", msg);
+			System.out.println(mav);
+		}
 		return mav;
 	}
 	
@@ -90,15 +78,24 @@ public class UserAction {
 	 * @return
 	 */
 	@RequestMapping("registerByPhone.do")
-	public ModelAndView registerByPhone(String phone,String uname,String upass,String pcode, HttpSession session){
+	public ModelAndView registerByPhone(String phone,String uname,String upass,String reupass,String pcode, HttpSession session){
 		ModelAndView mav;
-		
-		if(ubiz.regByPhone(phone, uname, upass, pcode, session)){
+		User user = new User();
+		user.setUname(uname);
+		user.setUpass(upass);
+		user.setPhone(phone);
+		try {
+			ubiz.regByPhone(phone, uname, upass, reupass, pcode, session);
 			mav = new ModelAndView("redirect:home/login.jsp");
-		}else{
+		} catch (BizException e) {
+			e.printStackTrace();
+			//获取报错信息
+			String msg = e.getMessage();
+			//跳转注册页面
 			mav = new ModelAndView("redirect:home/register.jsp");
-			mav.addObject("msg","用户注册失败!");
-		}
+			mav.addObject("msg", msg);
+			System.out.println(mav);
+		}	
 		return mav;
 	}
 	
@@ -115,15 +112,9 @@ public class UserAction {
 		session.setAttribute("pcode", pcode);
 	}
 	
-	
+}	
 
-=======
-import org.springframework.stereotype.Controller;
 
-@Controller
-public class UserAction {
 
-	
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
-	
-}
+
+

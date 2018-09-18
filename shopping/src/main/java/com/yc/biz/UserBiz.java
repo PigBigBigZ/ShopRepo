@@ -1,24 +1,25 @@
 package com.yc.biz;
 
-<<<<<<< HEAD
+
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
+import com.yc.bean.User;
+import com.yc.biz.impl.BizException;
+
 
 @Service
 public interface UserBiz{
-	public boolean regByEmail(String email,String uname,String upass);
+	public void regByEmail(String email,String uname,String upass, String reupass, String ecode,HttpSession session) throws BizException;
 	
-	public boolean regByPhone(String phone,String uname,String upass, String pcode,HttpSession session);
+	public void regByPhone(String phone,String uname,String upass, String reupass, String pcode,HttpSession session) throws BizException;
 
 	public boolean login(String userinput,String upass,String pcode,HttpSession session);
 	
-	public int checkuserinput (HttpSession session,String phone,String uname,String email);
-
-=======
-public interface UserBiz {
 	
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
+	
+
 }
+
