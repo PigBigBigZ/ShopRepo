@@ -4,14 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-=======
->>>>>>> 6f7a67add16a7e1775bb912c89a00967e3c5d32a
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/resources"/>
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
         <property name="context-root" value="shopping"/>
         <property name="java-output-path" value="/shopping/target/classes"/>
     </wb-module>

@@ -1,11 +1,5 @@
 package com.yc.bean;
 
-<<<<<<< HEAD
-import javax.persistence.*;
-
-@Entity //实体类注解
-@Table(name="user") //配置表名
-=======
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,34 +10,23 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user")
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 public class User {
-<<<<<<< HEAD
-	@Id //主键注解
-	@GeneratedValue(strategy=GenerationType.AUTO) //配置主键值的生成机制
-=======
 	@Id  //主键注解
 	@GeneratedValue(strategy=GenerationType.AUTO)  //配置主键值生成机制
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 	private Integer Uid;
-	private String uname;
-	private String upass;
-	private String phone;
-	private String email;
+	private String Uname;
+	private String Upass;
+	private String Phone;
+	private String Email;
 	private char Sex;
 	//身份证id
 	private String cid;
 	private String head;
 	private double account;
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/PigBigBigZ/ShopRepo.git
 	@OneToOne
 	@JoinColumn(name="rid")
 	private Role role;
 	private Integer paypass;
-	
 	public Integer getUid() {
 		return Uid;
 	}
@@ -51,28 +34,28 @@ public class User {
 		Uid = uid;
 	}
 	public String getUname() {
-		return uname;
+		return Uname;
 	}
 	public void setUname(String uname) {
-		this.uname = uname;
+		Uname = uname;
 	}
 	public String getUpass() {
-		return upass;
+		return Upass;
 	}
 	public void setUpass(String upass) {
-		this.upass = upass;
+		Upass = upass;
 	}
 	public String getPhone() {
-		return phone;
+		return Phone;
 	}
 	public void setPhone(String phone) {
-		this.phone = phone;
+		Phone = phone;
 	}
 	public String getEmail() {
-		return email;
+		return Email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		Email = email;
 	}
 	public char getSex() {
 		return Sex;
@@ -110,14 +93,13 @@ public class User {
 	public void setPaypass(Integer paypass) {
 		this.paypass = paypass;
 	}
-	
 	@Override
 	public String toString() {
-		return "User [Uid=" + Uid + ", uname=" + uname + ", upass=" + upass + ", phone=" + phone + ", email=" + email
-				+ ", Sex=" + Sex + ", cid=" + cid + ", head=" + head + ", account=" + account + ", role=" + role
-				+ ", paypass=" + paypass + "]";
+		return "User [Uid=" + Uid + ", Uname=" + Uname + ", Upass=" + Upass
+				+ ", Phone=" + Phone + ", Email=" + Email + ", Sex=" + Sex
+				+ ", cid=" + cid + ", head=" + head + ", account=" + account
+				+ ", role=" + role + ", paypass=" + paypass + "]";
 	}
-
 	
 	
 
