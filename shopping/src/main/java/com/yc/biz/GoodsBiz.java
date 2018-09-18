@@ -1,16 +1,25 @@
 package com.yc.biz;
 
-import java.util.List;
-import java.util.Map;
+
+import org.springframework.data.domain.Page;
 
 import com.yc.bean.Goods;
-import com.yc.bean.ShopAndImg;
 
 public interface GoodsBiz {
     public void addGoods(Goods goods);
     
-    public void updataGoods();
+    public void updataGoods(Goods goods);
     
-    public List<Object[]> findAllGoods();
+    //分页查看商品详情
+    public Page<Goods> findGoodsByPage(Integer page,Integer size);
+    
+    //统计商品总数
+    public long countGoods();
+    
+    //根据id删除商品
+    public void delGoods(Integer id);
+    
+    public Goods findGoodsById(Integer gid);
+    
     
 }

@@ -23,6 +23,7 @@ public class User {
 	private String cid;
 	private String head;
 	private double account;
+
 	@OneToOne
 	@JoinColumn(name="rid")
 	private Role role;
