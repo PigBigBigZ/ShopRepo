@@ -1,9 +1,8 @@
 package com.yc.web.controller;
 
-import org.springframework.stereotype.Controller;
-
 
 import javax.annotation.Resource;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.data.repository.query.Param;
@@ -15,7 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yc.bean.User;
 import com.yc.biz.UserBiz;
 import com.yc.biz.impl.BizException;
+import com.yc.dao.UserDao;
 import com.yc.utils.GetMessageUtils;
+import com.yc.utils.SendEmailUtils;
 
 
 
@@ -30,10 +31,11 @@ public class UserAction {
 	public String login(String uname,String upass,String userinput,String pcode,HttpSession session,Model model){
 		System.out.println(userinput+"========"+upass);
 		
-		if(ubiz.login( userinput,upass,pcode,session)){
-			
-			session.setAttribute("username", uname);
+		if(ubiz.login( userinput,upass,pcode,session)){			
+			session.setAttribute("username", userinput);
 			session.setAttribute("password", upass);
+			
+			System.out.println(session.getAttribute("username")+"这个是session存的username");
 			return "home3";
 		}else{
 			String msg = "用户名或密码错误";
@@ -112,9 +114,25 @@ public class UserAction {
 		String pcode = GetMessageUtils.getResult(phone);
 		System.out.println(pcode);
 		session.setAttribute("pcode", pcode);
+	}
 	
 	
-	
-}
-}
+	/**
+	 * 发送方法
+	 * 1、生成随机码
+	 * 2、将随机码存入会话
+	 * 3、通知用验证码发送成功
+	 * @throws MessagingException 
+	 */
+	@RequestMapping("getecode.do")
+	public void sendecode (HttpSession session,String email) throws MessagingException{
+		String ecode = SendEmailUtils.sendEmail(email);
+		System.out.println(ecode);
+		session.setAttribute("ecode", ecode);
+	}
+}	
+
+
+
+
 

@@ -9,6 +9,9 @@ public class Orderform {
 	private User user;
 	private Address address;
 	private Integer ostatus;
+	private Double allprice;
+	
+	
 
 	public Integer getOid() {
 		return oid;
@@ -49,11 +52,24 @@ public class Orderform {
 	public void setOstatus(Integer ostatus) {
 		this.ostatus = ostatus;
 	}
+	
+	
+
+	public Double getAllprice() {
+		return allprice;
+	}
+
+	public void setAllprice(Double allprice) {
+		this.allprice = allprice;
+	}
 
 	@Override
 	public String toString() {
 		return "Orderform [oid=" + oid + ", Spdate=" + Spdate + ", user="
-				+ user + ", address=" + address + ", ostatus=" + ostatus + "]";
+				+ user + ", address=" + address + ", ostatus=" + ostatus
+				+ ", allprice=" + allprice + "]";
 	}
+
+	
 
 }

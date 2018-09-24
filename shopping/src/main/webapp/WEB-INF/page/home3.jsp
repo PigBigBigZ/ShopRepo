@@ -1,5 +1,8 @@
+<%@page import="com.yc.bean.Gtype"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -9,16 +12,32 @@
 
 		<title>首页</title>
 		
+		<%
+		 List<Object[]> list =(List<Object[]>)request.getSession().getAttribute("list");
+		for(Object[] a:list){
+		   out.print(a[0]);
+		   out.print(a[1]);
+		   out.print("&nbsp;");
+		}
 		
+		/*  List<Gtype> list2=(List<Gtype>)session.getAttribute("list2");
+		for(Gtype b:list2){
+			out.print(b.getTypename());
+			out.print("&nbsp;");
+			out.print(b.getTypeid());
+		} */
+		
+		%>
+		
+		<c:set value="${pageContext.request.contextPath}" var="path" scope="page"/>
+		<link href="${path}/AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="${path}/AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
 
-		<link href="../../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-		<link href="../../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
+		<link href="${path}/basic/css/demo.css" rel="stylesheet" type="text/css" />
 
-		<link href="../../basic/css/demo.css" rel="stylesheet" type="text/css" />
-
-		<link href="../../css/hmstyle.css" rel="stylesheet" type="text/css" />
-		<script src="../../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
+		<link href="${path}/css/hmstyle.css" rel="stylesheet" type="text/css" />
+		<script src="${path}/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<script src="${path}/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 
 	</head>
 
@@ -29,7 +48,11 @@
 				<ul class="message-l">
 					<div class="topMessage">
 						<div class="menu-hd">
+							<%if(session.getAttribute("loginedUser")!=null) {%>
+								欢迎您： ${loginedUser.uname }
+								<%}else{ %>
 							<a href="login.html" target="_top" class="h">亲，请登录</a>
+								<% } %>
 							<a href="register" target="_top">免费注册</a>
 						</div>
 					</div>
@@ -39,22 +62,22 @@
 						<div class="menu-hd"><a href="home3.html" target="_top" class="h">商城首页</a></div>
 					</div>
 					<div class="topMessage my-shangcheng">
-						<div class="menu-hd MyShangcheng"><a href="../person/index.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+						<div class="menu-hd MyShangcheng"><a href="${path}/person/index.html" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 					</div>
 					<div class="topMessage mini-cart">
 						<div class="menu-hd"><a id="mc-menu-hd" href="shopcart.html" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 					</div>
 					<div class="topMessage favorite">
-						<div class="menu-hd"><a href="../person/collection.html" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
+						<div class="menu-hd"><a href="${path}/person/collection.html" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 				</ul>
 				</div>
 
 				<!--悬浮搜索框-->
 
 				<div class="nav white">
-					<div class="logo"><img src="../images/logo.png" /></div>
+					<div class="logo"><img src="${path}/images/logo.png" /></div>
 					<div class="logoBig">
-						<li><img src="../images/logobig.png" /></li>
+						<li><img src="${path}/images/logobig.png" /></li>
 					</div>
 
 					<div class="search-bar pr">
@@ -74,10 +97,10 @@
                       <!--轮播 -->
 						<div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
 							<ul class="am-slides">
-								<li class="banner1"><a href="introduction.html"><img src="../images/ad1.jpg" /></a></li>
-								<li class="banner2"><a><img src="../images/ad2.jpg" /></a></li>
-								<li class="banner3"><a><img src="../images/ad3.jpg" /></a></li>
-								<li class="banner4"><a><img src="../images/ad4.jpg" /></a></li>
+								<li class="banner1"><a href="introduction.html"><img src="${path}/images/ad1.jpg" /></a></li>
+								<li class="banner2"><a><img src="${path}/images/ad2.jpg" /></a></li>
+								<li class="banner3"><a><img src="${path}/images/ad3.jpg" /></a></li>
+								<li class="banner4"><a><img src="${path}/images/ad4.jpg" /></a></li>
 
 							</ul>
 						</div>
@@ -94,12 +117,18 @@
 						<div id="nav" class="navfull">
 							<div class="area clearfix">
 								<div class="category-content" id="guide_2">
-									
+									<%-- <%
+									List<Gtype> list2=(List<Gtype>)request.getAttribute("list2");
+									/* String gtypename=list2.get(0).getTypename();
+									System.out.print(gtypename); */
+									%> --%>
 									<div class="category">
 										<ul class="category-list" id="js_climit_li">
+											<c:forEach items="${list2 }" var="list2">
 											<li class="appliance js_toggle relative first">
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/cake.png"></i><a class="ml-22" title="点心">点心/蛋糕</a></h3>
+												<div class="category-info"  onmouseover="findChildGood('${list2.typeid}')" id="findChildGood">
+												      
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/cake.png"></i><a class="ml-22" title="点心">${list2.typename}</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -107,8 +136,49 @@
 															<div class="menu-srot">
 																<div class="sort-side">
 																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">蛋糕</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
+																		<dt><span title="蛋糕">${list2.typename}</span></dt>
+																		<%-- <c:choose >
+																		  <c:when test="${list2.typeid}==1">
+																		   <h1>11</h1>
+																		     <c:forEach items="${list1}" var="a">
+																              <dd>
+																					    <h1>haha</h1>
+																						<a title="${a[0] }" href="#"><span>${a[0]}</span></a>
+																					</dd>
+																			</c:forEach>
+																		  </c:when>
+																		  
+																		   <c:when test="${list2.typeid}==2">
+																		     <c:forEach items="${list22}" var="a">
+																              <dd>
+																					    <h1>
+																						<a title="${a[0] }" href="#"><span>${a[0]}</span></a>
+																					</h1>
+																					</dd>
+																					
+																			</c:forEach>
+																		  </c:when>
+																		  
+																		   <c:when test="${list2.typeid}==3">
+																		   <h1>33</h1>
+																		     <c:forEach items="${list3}" var="a">
+																              <dd>
+																					    <h1>
+																						<a title="${a[0] }" href="#"><span>${a[0]}</span></a>
+																					    </h1>
+																					</dd>
+																			</c:forEach>
+																		  </c:when>
+																		</c:choose> --%>
+																		<c:forEach items="${list }" var="a">
+																		
+																<dd>
+																 <h1>
+																	<a title="${a[0] }" href="#"><span>${a[0]}</span></a>
+																	</h1>
+																</dd>
+															</c:forEach>
+																		<!-- <dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
 																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
 																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
 																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
@@ -116,32 +186,23 @@
 																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
 																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
 																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
+																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd> -->
 																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">点心</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-
+																	
 																</div>
 																
 															</div>
 														</div>
 													</div>
 												</div>
-											<b class="arrow"></b>	
+											<b class="arrow"></b>
+											</li>	
+											</c:forEach>
 											</li>
-											<li class="appliance js_toggle relative">
+											</ul>
+										<%-- 	<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -190,7 +251,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/meat.png"></i><a class="ml-22" title="熟食、肉类">熟食/肉类</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -231,7 +292,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/bamboo.png"></i><a class="ml-22" title="素食、卤味">素食/卤味</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -274,7 +335,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/nut.png"></i><a class="ml-22" title="坚果、炒货">坚果/炒货</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -315,7 +376,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/candy.png"></i><a class="ml-22" title="糖果、蜜饯">糖果/蜜饯</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -356,7 +417,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/chocolate.png"></i><a class="ml-22" title="巧克力">巧克力</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -399,7 +460,7 @@
 																		<dd><a rel="nofollow" title="斑蒂尼BONDYNI" target="_blank" href="#" rel="nofollow"><span  class="red" >斑蒂尼BONDYNI</span></a></dd>
 																		<dd><a rel="nofollow" title="童衣阁" target="_blank" href="#" rel="nofollow"><span  class="red" >童衣阁</span></a></dd>
 																	</dl>
-																</div>
+																</div> --%>
 															</div>
 														</div>
 													</div>
@@ -408,7 +469,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/fish.png"></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/fish.png"></i><a class="ml-22" title="海味、河鲜">海味/河鲜</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -451,7 +512,7 @@
 											</li>
 											<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/tea.png"></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/tea.png"></i><a class="ml-22" title="花茶、果茶">花茶/果茶</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -492,7 +553,7 @@
 											</li>
 											<li class="appliance js_toggle relative last">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="${path}/images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -524,19 +585,20 @@
 																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
 																	</dl>
 																</div>
-																
+															
 															</div>
 														</div>
 													</div>
 												</div>
 
 											</li>
+											
 										</ul>
 									</div>
 								</div>
 
 							</div>
-						</div>
+						</div> 
 						<!--轮播 -->
 						<script type="text/javascript">
 							(function() {
@@ -553,19 +615,39 @@
 									$(this).children("div.menu-in").css("display", "none")
 								});
 							})
+							
+							function findChildGood(gtypeid){
+								 setInterval($.post('../findChildGoods.do',{'gtypeid':gtypeid},function(data){
+								}),3)  
+							}
+							/* $("#findChildGood").focus(function(gtypeid){
+								setInterval($.post('../findChildGoods.do',{'gtypeid':gtypeid},function(data){
+								}),3)
+							});
+							
+							$("#findChildGood").blur(function() {
+								setInterval($.post('../findChildGoods.do',{'gtypeid':0},function(data){
+								}),3)
+								}); */
+							var data=null;
+							 $(document).ready(function(){
+								 $.post('../findAll.do',data,function(data){
+								 });
+							 });
+
 						</script>
 
 
 					<!--小导航 -->
 					<div class="am-g am-g-fixed smallnav">
 						<div class="am-u-sm-3">
-							<a href="sort.html"><img src="../images/navsmall.jpg" />
+							<a href="sort.html"><img src="${path}/images/navsmall.jpg" />
 								<div class="title">商品分类</div>
 							</a>
 						</div>
 						
 						<div class="am-u-sm-3">
-							<a href="../person/index.html"><img src="../images/mansmall.jpg" />
+							<a href="${path}/person/index.html"><img src="${path}/images/mansmall.jpg" />
 								<div class="title">个人中心</div>
 							</a>
 						</div>
@@ -580,19 +662,19 @@
 
 							<ul>
 								<li class="title-first"><a target="_blank" href="#">
-									<img src="../images/TJ2.jpg"></img>
+									<img src="${path}/images/TJ2.jpg"></img>
 									<span>[特惠]</span>商城爆品1分秒								
 								</a></li>
 								<li class="title-first"><a target="_blank" href="#">
 									<span>[公告]</span>商城与广州市签署战略合作协议
-								     <img src="../images/TJ.jpg"></img>
+								     <img src="${path}/images/TJ.jpg"></img>
 								     <p>XXXXXXXXXXXXXXXXXX</p>
 							    </a></li>
 							    
 						<div class="mod-vip">
 							<div class="m-baseinfo">
-								<a href="../person/index.html">
-									<img src="../images/getAvatar.do.jpg">
+								<a href="${path}/person/index.html">
+									<img src="${path}/images/getAvatar.do.jpg">
 								</a>
 								<em>
 									Hi,<span class="s-name">小叮当</span>
@@ -604,7 +686,7 @@
 								<a class="am-btn-warning btn" href="register.html">注册</a>
 							</div>
 							<div class="member-login">
-								<a href="../person/order.html"><strong>0</strong>待收货</a>
+								<a href="${path}/person/order.html"><strong>0</strong>待收货</a>
 								<a href="#"><strong>0</strong>待发货</a>
 								<a href="#"><strong>0</strong>待付款</a>
 								<a href="#"><strong>0</strong>待评价</a>
@@ -617,7 +699,7 @@
 								<li><a target="_blank" href="#"><span>[特惠]</span>家电狂欢千亿礼券 买1送1！</a></li>
 								
 							</ul>
-                        <div class="advTip"><img src="../images/advTip.jpg"/></div>
+                        <div class="advTip"><img src="${path}/images/advTip.jpg"/></div>
 						</div>
 					</div>
 					<div class="clear"></div>
@@ -646,7 +728,7 @@
 
 					<div class="am-g am-g-fixed recommendation">
 						<div class="clock am-u-sm-3" ">
-							<img src="../images/2016.png "></img>
+							<img src="${path}/images/2016.png "></img>
 							<p>今日<br>推荐</p>
 						</div>
 						<div class="am-u-sm-4 am-u-lg-3 ">
@@ -655,7 +737,7 @@
 								<h4>开年福利篇</h4>
 							</div>
 							<div class="recommendationMain ">
-								<img src="../images/tj.png "></img>
+								<img src="${path}/images/tj.png "></img>
 							</div>
 						</div>						
 						<div class="am-u-sm-4 am-u-lg-3 ">
@@ -664,7 +746,7 @@
 								<h4>让爱早回家</h4>
 							</div>
 							<div class="recommendationMain ">
-								<img src="../images/tj1.png "></img>
+								<img src="${path}/images/tj1.png "></img>
 							</div>
 						</div>
 						<div class="am-u-sm-4 am-u-lg-3 ">
@@ -673,7 +755,7 @@
 								<h4>甜甜蜜蜜</h4>
 							</div>
 							<div class="recommendationMain ">
-								<img src="../images/tj2.png "></img>
+								<img src="${path}/images/tj2.png "></img>
 							</div>
 						</div>
 
@@ -695,7 +777,7 @@
 							<div class="icon-sale one "></div>	
 								<h4>秒杀</h4>							
 							<div class="activityMain ">
-								<img src="../images/activity1.jpg "></img>
+								<img src="${path}/images/activity1.jpg "></img>
 							</div>
 							<div class="info ">
 								<h3>春节送礼优选</h3>
@@ -706,7 +788,7 @@
 						  <div class="icon-sale two "></div>	
 							<h4>特惠</h4>
 							<div class="activityMain ">
-								<img src="../images/activity2.jpg "></img>
+								<img src="${path}/images/activity2.jpg "></img>
 							</div>
 							<div class="info ">
 								<h3>春节送礼优选</h3>								
@@ -717,7 +799,7 @@
 							<div class="icon-sale three "></div>
 							<h4>团购</h4>
 							<div class="activityMain ">
-								<img src="../images/activity3.jpg "></img>
+								<img src="${path}/images/activity3.jpg "></img>
 							</div>
 							<div class="info ">
 								<h3>春节送礼优选</h3>
@@ -728,7 +810,7 @@
 							<div class="icon-sale "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
-								<img src="../images/activity.jpg "></img>
+								<img src="${path}/images/activity.jpg "></img>
 							</div>
 							<div class="info ">
 								<h3>春节送礼优选</h3>
@@ -761,7 +843,7 @@
 					
 					<div class="am-g am-g-fixed floodOne ">
 						<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one ">
-							<a href="introduction.html ">
+							<a href="# ">
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -770,25 +852,35 @@
 										当小鱼儿恋上软豆腐
 									</div>
 								</div>
-                                  <img src="../images/act1.png " />								
+                                  <img src="${path}/images/act1.png " />								
 							</a>
 						</div>
-						
-						
-								
-									<div >
-										${Gname }
-									</div>
-									<div >
-										${Gprice }
+						<div class="am-u-sm-7 am-u-md-5 am-u-lg-4">
+							<div class="text-two">
+								<div class="outer-con ">
+									<div class="title ">
+										雪之恋和风大福
+									</div>									
+									<div class="sub-title ">
+										仅售：¥13.8
 									</div>
 									
-								
-								<a href="# "><img src="../images/${imgname } " /></a>
-						   
-						
-						
-					<!-- 	
+								</div>
+								<a href="# "><img src="${path}/images/act2.png " /></a>
+							</div>
+							<div class="text-two last">
+								<div class="outer-con ">
+									<div class="title ">
+										雪之恋和风大福
+									</div>
+									<div class="sub-title ">
+										仅售：¥13.8
+									</div>
+									
+								</div>
+								<a href="# "><img src="${path}/images/act2.png " /></a>
+						    </div>
+						</div>
 		             <div class="am-u-sm-12 am-u-md-4 ">
 						<div class="am-u-sm-3 am-u-md-6 text-three">
 							<div class="outer-con ">
@@ -800,7 +892,7 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
 
 						<div class="am-u-sm-3 am-u-md-6 text-three">
@@ -813,7 +905,7 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
 
 						<div class="am-u-sm-3 am-u-md-6 text-three">
@@ -826,7 +918,7 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
 
 						<div class="am-u-sm-3 am-u-md-6 text-three last ">
@@ -839,9 +931,9 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
-					</div> -->
+					</div>
 
 					</div>
                  <div class="clear "></div>
@@ -868,7 +960,7 @@
 						
 						<div class="am-u-sm-5 am-u-md-4 text-one ">
 							<a href="# ">
-								<img src="../images/act1.png " />
+								<img src="${path}/images/act1.png " />
 								<div class="outer-con ">
 									<div class="title ">
 										零食大礼包开抢啦
@@ -883,14 +975,14 @@
 						<div class="am-u-sm-7 am-u-md-4 am-u-lg-2 text-two">
 								<div class="outer-con ">
 									<div class="title ">
-										${Gname }
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
-										${Gprice }
+										仅售：¥13.8
 									</div>
 								</div>
-								<a href="# "><img src="../images/5.jpg " /></a>						
+								<a href="# "><img src="${path}/images/5.jpg " /></a>						
 						</div>
 						
 						<div class="am-u-md-4 am-u-lg-2 text-three">
@@ -903,7 +995,7 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
 						<div class="am-u-md-4 am-u-lg-2 text-three">
 							<div class="outer-con ">
@@ -915,31 +1007,31 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>
 						<div class="am-u-sm-6 am-u-md-4 am-u-lg-2 text-two ">
 								<div class="outer-con ">
 									<div class="title ">
-										aa
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
 										仅售：¥13.8
 									</div>
 								</div>
-								<a href="# "><img src="../images/5.jpg " /></a>						
+								<a href="# "><img src="${path}/images/5.jpg " /></a>						
 						</div>						
 						<div class="am-u-sm-6 am-u-md-3 am-u-lg-2 text-four ">
 								<div class="outer-con ">
 									<div class="title ">
-										aa之恋和风大福
+										雪之恋和风大福
 									</div>
 									
 									<div class="sub-title ">
 										仅售：¥13.8
 									</div>
 								</div>
-								<a href="# "><img src="../images/5.jpg " /></a>						
+								<a href="# "><img src="${path}/images/5.jpg " /></a>						
 						</div>				
 						<div class="am-u-sm-4 am-u-md-3 am-u-lg-4 text-five">
 							<div class="outer-con ">
@@ -951,7 +1043,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../images/act2.png " /></a>
+							<a href="# "><img src="${path}/images/act2.png " /></a>
 						</div>	
 						<div class="am-u-sm-4 am-u-md-3 am-u-lg-2 text-six">
 							<div class="outer-con ">
@@ -963,7 +1055,7 @@
 									尝鲜价：¥4.8
 								</div>
 							</div>
-							<a href="# "><img src="../images/act3.png " /></a>
+							<a href="# "><img src="${path}/images/act3.png " /></a>
 						</div>	
 						<div class="am-u-sm-4 am-u-md-3 am-u-lg-4 text-five">
 							<div class="outer-con ">
@@ -975,7 +1067,7 @@
 								</div>
 								
 							</div>
-							<a href="# "><img src="../images/act2.png " /></a>
+							<a href="# "><img src="${path}/images/act2.png " /></a>
 						</div>							
 					</div>
 
@@ -1003,7 +1095,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp.jpg " />
+										<img src="${path}/images/cp.jpg " />
 										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
 										<span class="e-price ">￥29.90</span>
 									</a>
@@ -1012,7 +1104,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp2.jpg " />
+										<img src="${path}/images/cp2.jpg " />
 										<div class="pro-title ">ZEK 原味海苔</div>
 										<span class="e-price ">￥8.90</span>
 									</a>
@@ -1021,7 +1113,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp.jpg " />
+										<img src="${path}/images/cp.jpg " />
 										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
 										<span class="e-price ">￥29.90</span>
 									</a>
@@ -1030,7 +1122,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp2.jpg " />
+										<img src="${path}/images/cp2.jpg " />
 										<div class="pro-title ">ZEK 原味海苔</div>
 										<span class="e-price ">￥8.90</span>
 									</a>
@@ -1039,7 +1131,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp.jpg " />
+										<img src="${path}/images/cp.jpg " />
 										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
 										<span class="e-price ">￥29.90</span>
 									</a>
@@ -1048,7 +1140,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp2.jpg " />
+										<img src="${path}/images/cp2.jpg " />
 										<div class="pro-title ">ZEK 原味海苔</div>
 										<span class="e-price ">￥8.90</span>
 									</a>
@@ -1057,7 +1149,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp.jpg " />
+										<img src="${path}/images/cp.jpg " />
 										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
 										<span class="e-price ">￥29.90</span>
 									</a>
@@ -1066,7 +1158,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp2.jpg " />
+										<img src="${path}/images/cp2.jpg " />
 										<div class="pro-title ">ZEK 原味海苔</div>
 										<span class="e-price ">￥8.90</span>
 									</a>
@@ -1075,7 +1167,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp.jpg " />
+										<img src="${path}/images/cp.jpg " />
 										<div class="pro-title ">萨拉米 1+1小鸡腿</div>
 										<span class="e-price ">￥29.90</span>
 									</a>
@@ -1084,7 +1176,7 @@
 							<li>
 								<div class="list ">
 									<a href="# ">
-										<img src="../images/cp2.jpg " />
+										<img src="${path}/images/cp2.jpg " />
 										<div class="pro-title ">ZEK 原味海苔</div>
 										<span class="e-price ">￥8.90</span>
 									</a>
@@ -1127,27 +1219,27 @@
 			<li class="active"><a href="home3.html"><i class="am-icon-home "></i>首页</a></li>
 			<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
 			<li><a href="shopcart.html"><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li><a href="../person/index.html"><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href="${path}/person/index.html"><i class="am-icon-user"></i>我的</a></li>					
 		</div>
 		<!--菜单 -->
 		<div class=tip>
 			<div id="sidebar">
 				<div id="wrap">
 					<div id="prof" class="item ">
-						<a href="../person/index.html">
+						<a href="${path}/person/index.html">
 							<span class="setting "></span>
 						</a>
 						<div class="ibar_login_box status_login ">
 							<div class="avatar_box ">
-								<p class="avatar_imgbox "><img src="../images/no-img_mid_.jpg " /></p>
+								<p class="avatar_imgbox "><img src="${path}/images/no-img_mid_.jpg " /></p>
 								<ul class="user_info ">
 									<li>用户名：sl1903</li>
 									<li>级&nbsp;别：普通会员</li>
 								</ul>
 							</div>
 							<div class="login_btnbox ">
-								<a href="../person/order.html" class="login_order ">我的订单</a>
-								<a href="../person/collection.html" class="login_favorite ">我的收藏</a>
+								<a href="${path}/person/order.html" class="login_order ">我的订单</a>
+								<a href="${path}/person/collection.html" class="login_favorite ">我的收藏</a>
 							</div>
 							<i class="icon_arrow_white "></i>
 						</div>
@@ -1173,7 +1265,7 @@
 					</div>
 
 					<div id="foot " class="item ">
-						<a href="../person/foot.html">
+						<a href="${path}/person/foot.html">
 							<span class="zuji "></span>
 						</a>
 						<div class="mp_tooltip ">
@@ -1183,8 +1275,8 @@
 					</div>
 
 					<div id="brand " class="item ">
-						<a href="../person/collection.html">
-							<span class="wdsc "><img src="../images/wdsc.png " /></span>
+						<a href="${path}/person/collection.html">
+							<span class="wdsc "><img src="${path}/images/wdsc.png " /></span>
 						</a>
 						<div class="mp_tooltip ">
 							我的收藏
@@ -1194,7 +1286,7 @@
 
 					<div id="broadcast " class="item ">
 						<a href="# ">
-							<span class="chongzhi "><img src="../images/chongzhi.png " /></span>
+							<span class="chongzhi "><img src="${path}/images/chongzhi.png " /></span>
 						</a>
 						<div class="mp_tooltip ">
 							我要充值
@@ -1210,7 +1302,7 @@
 						<!--二维码 -->
 						<li class="qtitem ">
 							<a href="#none "><span class="mpbtn_qrcode "></span></a>
-							<div class="mp_qrcode " style="display:none; "><img src="../images/weixin_code_145.png " /><i class="icon_arrow_white "></i></div>
+							<div class="mp_qrcode " style="display:none; "><img src="${path}/images/weixin_code_145.png " /><i class="icon_arrow_white "></i></div>
 						</li>
 						<li class="qtitem ">
 							<a href="#top " class="return_top "><span class="top "></span></a>
@@ -1291,7 +1383,7 @@
 		<script>
 			window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
 		</script>
-		<script type="text/javascript " src="../basic/js/quick_links.js "></script>
+		<script type="text/javascript " src="${path}/basic/js/quick_links.js "></script>
 	</body>
 
 </html>

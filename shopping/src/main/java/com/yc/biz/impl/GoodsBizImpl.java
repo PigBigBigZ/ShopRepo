@@ -2,6 +2,8 @@ package com.yc.biz.impl;
 
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Page;
@@ -63,6 +65,25 @@ public class GoodsBizImpl implements GoodsBiz {
 	public Goods findGoodsById(Integer gid) {
 		return dao.findOne(gid);
 	}
+    
+	public List<Object[]> findAllGoods() {
+		return dao.findAllGoods();
+		
+	}
+	
+	public List<Object[]> findChildGoods(Integer gtypeid) {
+		return dao.findChildGoods(gtypeid);
+	}
 
+	@Override
+	public List<Object[]> findGoodsAndImg(Integer gtypeid) {
+		return dao.findGoodsAndImg(gtypeid);
+	}
+
+	@Override
+	public List<Integer> GroupByTypeid() {
+		return dao.GroupByTypeid();
+	}
+	
    
 }

@@ -3,9 +3,9 @@ package com.yc.dao;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.yc.bean.Gtype;
+import com.yc.bean.Collect;
 
 @Repository
-public interface GtypeDao extends JpaRepository<Gtype,Integer>{
+public interface CollectDao extends JpaRepository<Collect, Integer>{
 	
 }

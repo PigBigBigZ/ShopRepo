@@ -1,6 +1,8 @@
 package com.yc.biz;
 
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.yc.bean.Goods;
@@ -20,6 +22,14 @@ public interface GoodsBiz {
     public void delGoods(Integer id);
     
     public Goods findGoodsById(Integer gid);
+    
+    public List<Object[]> findAllGoods();
+    
+    public List<Object[]> findChildGoods(Integer gtypeid);
+    
+    List<Object[]> findGoodsAndImg(Integer gtypeid);
+    
+    List<Integer> GroupByTypeid();
     
     
 }
