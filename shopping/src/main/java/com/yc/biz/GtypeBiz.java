@@ -1,10 +1,17 @@
 package com.yc.biz;
 
+
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 
 import com.yc.bean.Gtype;
+
+
+
+
+
+
 
 public interface GtypeBiz {
 	public void addGtype(Gtype gtype);
@@ -20,6 +27,8 @@ public interface GtypeBiz {
 	public Page<Gtype> findGtypeByPage(Integer page,Integer size);
 	
 	public void findAllGtype();
+
 	
 	public List<Gtype> findAll();
+
 }

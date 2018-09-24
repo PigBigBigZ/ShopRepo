@@ -8,5 +8,16 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>home3.jsp</welcome-file>
   </welcome-file-list>
+  <filter>
+  	<filter-name>login filter</filter-name>
+  	<filter-class>com.yc.web.filter.LoginFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>login filter</filter-name>
+  	<url-pattern>/collect.jsp</url-pattern>
+  	<url-pattern>/addCol.do</url-pattern>
+  	<url-pattern>/findCollectByPage.do</url-pattern>
+  </filter-mapping>
 </web-app>

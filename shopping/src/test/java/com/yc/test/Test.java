@@ -12,9 +12,12 @@ import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.HelloApplication;
+import com.yc.bean.Collect;
 import com.yc.bean.Goods;
 import com.yc.bean.Gtype;
 import com.yc.bean.Image;
+import com.yc.bean.User;
+import com.yc.biz.impl.CollectBizImpl;
 import com.yc.biz.impl.GoodsBizImpl;
 import com.yc.biz.impl.GtypeBizImpl;
 
@@ -26,6 +29,10 @@ public class Test {
 	GoodsBizImpl biz;
 	@Resource
 	GtypeBizImpl gtbiz;
+
+
+	@Resource
+    CollectBizImpl cbiz;
 
 	@org.junit.Test
 	public void testAddGoods() {
@@ -70,9 +77,34 @@ public class Test {
 		List<Gtype> list = gtbiz.findAll();
 		String typenameString = list.get(0).getTypename();
 		System.out.println(typenameString);
+	}
 		/*
 		 * for(Gtype gtype:list){ System.out.println(gtype.getTypename()); }
 		 */
+
+	public void testAddCollect(){
+		Collect collect=new Collect();
+		Goods goods=new Goods();
+		User user=new User();
+		goods.setGid(1);
+		user.setUid(2);
+		collect.setGoods(goods);
+		collect.setUser(user);
+		cbiz.addCol(collect);
+	}
+	
+	@org.junit.Test
+	public void testFindCol(){
+		Integer uid=2;
+		Integer gid=2;
+		System.out.println(cbiz.findCol(uid, gid));
+	}
+	
+	@org.junit.Test
+	public void testDelCollect(){
+		Integer collectid=2;
+		cbiz.delCol(collectid);
+
 	}
 
 	@SuppressWarnings("null")

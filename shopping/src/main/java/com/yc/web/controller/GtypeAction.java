@@ -1,9 +1,12 @@
 package com.yc.web.controller;
 
+
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+
+
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.gson.Gson;
-import com.yc.bean.Goods;
 import com.yc.bean.Gtype;
 import com.yc.biz.GtypeBiz;
 
@@ -77,6 +79,7 @@ public class GtypeAction {
 		gtypeBiz.findAllGtype();
 		
 	}
+
 	
 	@RequestMapping("findAll.do")
 	public void findAll(HttpSession model){
@@ -85,4 +88,5 @@ public class GtypeAction {
 		//System.out.println(list);
 		model.setAttribute("list2", list);
 	}
+
 }

@@ -76,6 +76,7 @@ public class GoodsBizImpl implements GoodsBiz {
 	}
 
 	@Override
+
 	public List<Object[]> findGoodsAndImg(Integer gtypeid) {
 		return dao.findGoodsAndImg(gtypeid);
 	}
@@ -85,5 +86,6 @@ public class GoodsBizImpl implements GoodsBiz {
 		return dao.GroupByTypeid();
 	}
 	
+
    
 }

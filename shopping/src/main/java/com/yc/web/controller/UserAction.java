@@ -5,7 +5,7 @@ import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.data.repository.query.Param;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.yc.bean.User;
 import com.yc.biz.UserBiz;
 import com.yc.biz.impl.BizException;
-import com.yc.dao.UserDao;
+
 import com.yc.utils.GetMessageUtils;
 import com.yc.utils.SendEmailUtils;
 
@@ -32,11 +32,17 @@ public class UserAction {
 		System.out.println(userinput+"========"+upass);
 		
 		if(ubiz.login( userinput,upass,pcode,session)){			
+
 			session.setAttribute("username", userinput);
 			session.setAttribute("password", upass);
 			
 			System.out.println(session.getAttribute("username")+"这个是session存的username");
-			return "home3";
+		
+
+			
+		
+			return "redirect:home/home3.jsp";
+
 		}else{
 			String msg = "用户名或密码错误";
 			model.addAttribute("msg", msg);

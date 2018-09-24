@@ -1,6 +1,8 @@
 package com.yc.biz.impl;
 
+
 import java.util.List;
+
 
 import javax.annotation.Resource;
 
@@ -54,9 +56,11 @@ public class GtypeBizImpl implements GtypeBiz {
 	public void findAllGtype() {
 		dao.findAll();
 	}
+
 	
 	public List<Gtype> findAll(){
 		return dao.findAll();
 	}
+
 
 }

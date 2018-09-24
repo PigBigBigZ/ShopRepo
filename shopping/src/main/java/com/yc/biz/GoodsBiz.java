@@ -23,6 +23,7 @@ public interface GoodsBiz {
     
     public Goods findGoodsById(Integer gid);
     
+
     public List<Object[]> findAllGoods();
     
     public List<Object[]> findChildGoods(Integer gtypeid);
@@ -32,4 +33,6 @@ public interface GoodsBiz {
     List<Integer> GroupByTypeid();
     
     
+
+   
 }

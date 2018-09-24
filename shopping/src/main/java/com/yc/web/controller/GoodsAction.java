@@ -1,8 +1,10 @@
 package com.yc.web.controller;
 
 
+
 import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -92,7 +94,11 @@ public class GoodsAction {
 		goods.setGsail(gsail);
 		gBiz.addGoods(goods);
 		return "redirect:manageGoods.jsp";
+<<<<<<< HEAD
 	}*/
+
+
+
 	
 	@RequestMapping("findGoodsByPage.do")
 	public String findGoodsByPage(ModelMap modelMap,@RequestParam(value = "page", defaultValue = "1") Integer page,
@@ -140,6 +146,7 @@ public class GoodsAction {
 		return "updateGoods";
 	}
 	
+
 	/*@RequestMapping("findGoodAndImg.do")
 	public  void  findGoodAndImg(HttpSession session,HttpSession model){
 		List<Object[]> list=gBiz.findAllGoods();
@@ -183,4 +190,5 @@ public class GoodsAction {
 		model.setAttribute("GoodsAndImgs", list);
 	}
 	
+
 }

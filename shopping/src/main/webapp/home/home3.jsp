@@ -1,6 +1,7 @@
 <%@page import="com.yc.bean.Gtype"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -93,11 +94,13 @@
 					<div class="menu-hd">
 						<a href="${path}/person/collection.html" target="_top"><i
 							class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+
 					</div>
 			</ul>
 		</div>
 
 		<!--悬浮搜索框-->
+
 
 		<div class="nav white">
 			<div class="logo">
@@ -122,6 +125,7 @@
 	</div>
 
 
+
 	<div class="banner">
 		<!--轮播 -->
 		<div class="am-slider am-slider-default scoll" data-am-flexslider
@@ -138,12 +142,15 @@
 		<div class="clear"></div>
 	</div>
 
+
 	<div class="shopNav">
 		<div class="slideall">
+
 
 			<div class="long-title">
 				<span class="all-goods">全部分类</span>
 			</div>
+
 
 
 			<!--侧边导航 -->
@@ -183,6 +190,7 @@
 								</c:forEach>
 
 							</ul>
+
 						</div>
 					</div>
 				</div>
@@ -308,11 +316,13 @@
 				<div class="title">商品分类</div></a>
 		</div>
 
+
 		<div class="am-u-sm-3">
 			<a href="${path}/person/index.html"><img
 				src="${path}/images/mansmall.jpg" />
 				<div class="title">个人中心</div> </a>
 		</div>
+
 
 	</div>
 
@@ -338,6 +348,7 @@
 							class="s-name">小叮当</span> <a href="#"><p>点击更多优惠活动</p></a>
 						</em>
 					</div>
+
 					<div class="member-logout">
 						<a class="am-btn-warning btn" href="login.html">登录</a> <a
 							class="am-btn-warning btn" href="register.html">注册</a>
@@ -349,6 +360,7 @@
 					</div>
 					<div class="clear"></div>
 				</div>
+
 
 				<li><a target="_blank" href="#"><span>[特惠]</span>洋河年末大促，低至两件五折</a></li>
 				<li><a target="_blank" href="#"><span>[公告]</span>华北、华中部分地区配送延迟</a></li>
@@ -397,6 +409,7 @@
 						<h3>真的有鱼</h3>
 						<h4>开年福利篇</h4>
 					</div>
+
 					<div class="recommendationMain ">
 						<img src="${path}/images/tj.png "></img>
 					</div>
@@ -441,6 +454,7 @@
 						</div>
 						<div class="info ">
 							<h3>春节送礼优选</h3>
+
 						</div>
 					</div>
 
@@ -454,6 +468,7 @@
 							<h3>春节送礼优选</h3>
 						</div>
 					</div>
+
 
 					<div class="am-u-sm-3 ">
 						<div class="icon-sale three "></div>
@@ -475,6 +490,7 @@
 						<div class="info ">
 							<h3>春节送礼优选</h3>
 						</div>
+
 					</div>
 
 				</div>
@@ -495,6 +511,7 @@
 								</span>
 							</div>
 						</div>
+
 						<c:forEach items="${GoodsAndImgs.get(0)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
@@ -789,3 +806,5 @@
 	<script type="text/javascript " src="${path}/basic/js/quick_links.js "></script>
 </body>
 </html>
+
+ 		

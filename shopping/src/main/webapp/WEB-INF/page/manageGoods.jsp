@@ -167,8 +167,10 @@
 								<label for="user-intro" class="am-u-sm-3 am-form-label">
 									图片</label>
 								<div class="am-u-sm-9">
+
 									<input type="file" id="imgid" required
 										placeholder="商品图片" name="file">
+
 								</div>
 							</div>
 							<div class="am-form-group">

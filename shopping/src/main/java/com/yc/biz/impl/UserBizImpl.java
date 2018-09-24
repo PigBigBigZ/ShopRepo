@@ -35,14 +35,29 @@ public class UserBizImpl implements UserBiz{
 		User user = new User();
 		System.out.println(dao.findUserByUnameAndUpass(userinput,upass));
 		if(userinput.matches(em)){
+
 			user=dao.findUserByEmailAndUpass(userinput,MD5Utils.md5(upass));
+
+			user = dao.findUserByEmail(userinput);
+			//String username = user.getUname();
+
 			
-			
+			user=dao.findUserByEmailAndUpass(userinput,MD5Utils.md5(upass));
+			session.setAttribute("logineduser", user);
 		}else if(userinput.matches(ph)){
+			user = dao.findUserByPhone(userinput);
+			//String username = user.getUname();
+			
+
+		}else if(userinput.matches(ph)){
+
+
 			user=dao.findUserByPhoneAndUpass(userinput,MD5Utils.md5(upass));
+			session.setAttribute("logineduser", user);
 		}else{
+			
 			user=dao.findUserByUnameAndUpass(userinput,MD5Utils.md5(upass));
-			System.out.println(user+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			session.setAttribute("logineduser", user);
 		}
 		
 		if(user!=null){
