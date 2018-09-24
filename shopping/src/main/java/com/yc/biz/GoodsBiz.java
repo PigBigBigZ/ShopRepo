@@ -1,6 +1,8 @@
 package com.yc.biz;
 
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import com.yc.bean.Goods;
@@ -21,5 +23,5 @@ public interface GoodsBiz {
     
     public Goods findGoodsById(Integer gid);
     
-    
+    public List<Goods> findAllGoods();
 }

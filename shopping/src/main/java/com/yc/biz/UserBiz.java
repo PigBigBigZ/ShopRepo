@@ -2,7 +2,6 @@ package com.yc.biz;
 
 
 
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
@@ -23,5 +22,4 @@ public interface UserBiz{
 	
 
 }
-
 

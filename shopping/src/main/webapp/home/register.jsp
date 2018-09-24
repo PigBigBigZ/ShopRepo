@@ -44,6 +44,12 @@
 										<label for="email"><i class="am-icon-envelope-o"></i></label>
 										<input type="email" name="email" id="email" placeholder="请输入邮箱">
                  </div>	
+                 			<div class="verification">
+											<label for="code"><i class="am-icon-code-fork"></i></label>
+											<input type="tel" name="ecode" id="ecode" placeholder="请输入验证码">
+											<a class="btn" href="javascript:void(0);" onclick="sendEmailCode();" id="sendEmailCode">
+												<span id="dyMobileButton">获取</span></a>
+										</div>
                  			   <div class="user-email">
 										<label for="user"><i class="am-icon-user"></i></label>
 										<input type="text" name="uname" id="uname" placeholder="请输入用户名">
@@ -150,7 +156,15 @@
 		$.post('../getpcode.do',{'phone':a},function(data){
 		});
 		
-	}			
+	}	
+	
+	function sendEmailCode(){
+	 var b=	document.getElementById('email').value;
+		alert("已发送验证码,请查看!");
+		$.post('../getecode.do',{'email':b},function(data){
+		});
+			
+	}
 </script>
 	</body>
 	

@@ -1,9 +1,6 @@
 package com.yc.biz.impl;
 
 
-import com.yc.biz.UserBiz;
-
-
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -13,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yc.bean.User;
+import com.yc.biz.UserBiz;
 import com.yc.dao.UserDao;
 import com.yc.utils.GetMessageUtils;
 import com.yc.utils.MD5Utils;
@@ -36,15 +34,22 @@ public class UserBizImpl implements UserBiz{
 		
 		User user = new User();
 		System.out.println(dao.findUserByUnameAndUpass(userinput,upass));
-		if(userinput.equals(em)){
+		if(userinput.matches(em)){
+			user = dao.findUserByEmail(userinput);
+			//String username = user.getUname();
+			
 			user=dao.findUserByEmailAndUpass(userinput,MD5Utils.md5(upass));
+			session.setAttribute("logineduser", user);
+		}else if(userinput.matches(ph)){
+			user = dao.findUserByPhone(userinput);
+			//String username = user.getUname();
 			
-			
-		}else if(userinput.equals(ph)){
 			user=dao.findUserByPhoneAndUpass(userinput,MD5Utils.md5(upass));
+			session.setAttribute("logineduser", user);
 		}else{
+			
 			user=dao.findUserByUnameAndUpass(userinput,MD5Utils.md5(upass));
-			System.out.println(user+"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+			session.setAttribute("logineduser", user);
 		}
 		
 		if(user!=null){
@@ -65,7 +70,7 @@ public class UserBizImpl implements UserBiz{
 	public void regByEmail(String email, String uname, String upass, String reupass, String ecode, HttpSession session)throws BizException {
 		
 		User user = new User();
-		
+		String emailcode = (String) session.getAttribute("ecode");
 		user.setEmail(email);
 		user.setUname(uname);
 		user.setUpass(MD5Utils.md5(upass));
@@ -93,9 +98,9 @@ public class UserBizImpl implements UserBiz{
 		if(user2!=null){
 			throw new BizException("邮箱已被注册!");
 		}
-//		if(!ecode.equals(emailcode)){
-//			throw new BizException("验证码错误!");
-//		}
+		if(!ecode.equals(emailcode)){
+			throw new BizException("验证码错误!");
+		}
 		dao.save(user);
 	}
 
@@ -147,7 +152,6 @@ public class UserBizImpl implements UserBiz{
 
 
 	
-
 
 
 }

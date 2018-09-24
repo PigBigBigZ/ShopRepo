@@ -41,7 +41,7 @@ $.extend({
         if (e.dialogModal) {
             $.jq_MaskDiv();
         }
-        var str = "<div class='jq_dvconfirm' style='z-index:2;box-shadow: 0px 0px 5px #BCD4E5;border: 1px solid #BCD4E5 !important;position:absolute;background-Color:#fff;min-width:578px;width:578px;min-height:144px;border: 1px solid rgba(0, 0, 0, 0.2);font-size: 13px;opacity:0;filter:alpha(opacity=0);-moz-opacity:0;'>"
+        var str = "<div class='jq_dvconfirm' style='z-index:2;box-shadow: 0px 0px 5px #BCD4E5;border: 1px solid #BCD4E5 !important;position:fixed;background-Color:#fff;min-width:578px;width:578px;min-height:144px;border: 1px solid rgba(0, 0, 0, 0.2);font-size: 13px;opacity:0;filter:alpha(opacity=0);-moz-opacity:0;'>"
                         + "<div style='min-height:54px;line-height:54px;padding:20px;'>"
                                 + "<button title='关闭' class='btncloseconfirm' style='outline:0px;float:right;margin-top:-20px;font-size:18px;font-weight: bold;color: rgb(0, 0, 0);text-shadow: 0px 1px 0px rgb(255, 255, 255);border:0px;background-color:transparent;cursor:pointer;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;'>×</button>"
                                 + "<div style='font-size:16px;color: rgb(57, 57, 57);'>" + e.message + "</div>"
@@ -95,7 +95,7 @@ $.extend({
         if (e.dialogModal) {
             $.jq_MaskDiv();
         }
-        var str = "<div class='jq_dvalert' style='z-index:2;box-shadow: 0px 0px 5px #BCD4E5;border: 1px solid #BCD4E5 !important;position:absolute;background-Color:#fff;min-width:578px;width:578px;min-height:144px;border: 1px solid rgba(0, 0, 0, 0.2);font-size: 13px;opacity:0;filter:alpha(opacity=0);-moz-opacity:0;'>"
+        var str = "<div class='jq_dvalert' style='z-index:2;box-shadow: 0px 0px 5px #BCD4E5;border: 1px solid #BCD4E5 !important;position:fixed;background-Color:#fff;min-width:578px;width:578px;min-height:144px;border: 1px solid rgba(0, 0, 0, 0.2);font-size: 13px;opacity:0;filter:alpha(opacity=0);-moz-opacity:0;'>"
                         + "<div style='min-height:54px;line-height:54px;padding:20px;'>"
                                 + "<button title='关闭' class='btnclosealert' style='outline:0px;float:right;margin-top:-10px;font-size:18px;font-weight: bold;color: rgb(0, 0, 0);text-shadow: 0px 1px 0px rgb(255, 255, 255);border:0px;background-color:transparent;cursor:pointer;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;'>×</button>"
                                 + "<div style='font-size:16px;color: rgb(57, 57, 57);'>" + e.message + "</div>"

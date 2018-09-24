@@ -20,14 +20,13 @@
 	<body>
 
 		<div class="login-boxtitle">
-			<a href="home3.html"><img alt="logo" src="../images/logobig.png" /></a>
+			<a href="home3.jsp"><img alt="logo" src="../images/logobig.png" /></a>
 		</div>
 
 		<div class="login-banner">
 			<div class="login-main">
 				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
 				 <font color="red">${param.msg}</font>
-				 <font color="red">pbw</font>
 				<div class="login-box">
 				 
 					<form action="../login.do" method="post">
@@ -52,7 +51,7 @@
            		<div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 								<a href="forgotpass.html" class="am-fr">忘记密码</a>
-								<a href="register.html" class="zcnext am-fr am-btn-default">注册</a>
+								<a href="register.jsp" class="zcnext am-fr am-btn-default">注册</a>
 								<br />
 
 								<div class="am-cf">
@@ -83,7 +82,7 @@
 							<p>
 								
 								
-								<a href="home3.html ">商城首页</a>
+								<a href="home3.jsp ">商城首页</a>
 								<b>|</b>
 								<a href="https://www.alipay.com/ ">支付宝</a>
 								<b>|</b>

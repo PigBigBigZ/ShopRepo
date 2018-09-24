@@ -1,6 +1,8 @@
 package com.yc.web.controller;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.data.domain.Page;
@@ -33,9 +35,10 @@ public class GoodsAction {
 		Image image=new Image();
 		image.setImgid(imgid);
 		goods.setImage(image);
-		
+		Integer gsail=0;
+		goods.setGsail(gsail);
 		gBiz.addGoods(goods);
-		return null;
+		return "redirect:manageGoods.jsp";
 	}
 	
 	@RequestMapping("findGoodsByPage.do")
@@ -72,17 +75,21 @@ public class GoodsAction {
 		goods.setGsail(goods1.getGsail());
 		goods.setImage(goods1.getImage());
 		gBiz.updataGoods(goods);
-		return "manageGoods";
+		return "redirect:manageGoods.jsp";
 	}
 	
 	
 	//根据id查商品
 	@RequestMapping("findGoodsById.do")
 	public String findGoodsById(Integer gid,Model model){
-		//model.addAttribute("mes", gBiz.findGoodsById(id));
 		Goods goods=gBiz.findGoodsById(gid);
 		model.addAttribute("goods",goods);
 		return "updateGoods";
 	}
 	
+	@RequestMapping("findAllGoods.do")
+	public void findAllGoods(ModelMap modelMap){
+		List<Goods> goods=gBiz.findAllGoods();
+		modelMap.addAttribute("good", goods);
+	}
 }
