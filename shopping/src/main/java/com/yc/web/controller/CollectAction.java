@@ -1,5 +1,7 @@
 package com.yc.web.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 
@@ -61,11 +63,11 @@ public class CollectAction {
 	public String findCollectByPage(ModelMap modelMap,@RequestParam(value = "page", defaultValue = "1") Integer page,
 	        @RequestParam(value = "size", defaultValue = "10") Integer size,Integer uid){
 
-		Page<Collect> datas=cBiz.findCollectByPage(page, size);
+		List<Collect> datas=cBiz.findCollectByPage(page, size,uid);
 		
 		modelMap.addAttribute("datas", datas);
 		modelMap.addAttribute("count", cBiz.countCollect(uid));
-		System.out.println(datas.getContent());
+		//System.out.println(datas.getContent());
 		System.out.println(cBiz.countCollect(uid));
 		return "collection";
 		

@@ -10,16 +10,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
-
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 
 import com.yc.bean.Collect;
-
 import com.yc.biz.CollectBiz;
 import com.yc.dao.CollectDao;
 @Service
@@ -52,10 +48,11 @@ public class CollectBizImpl implements CollectBiz {
 		}
 	}
 
-	@Override
-	public Page<Collect> findCollectByPage(Integer page, Integer size) {
+	public List<Collect> findCollectByPage(Integer page, Integer size,Integer uid) {
 		Pageable pageable= new PageRequest(page-1, size, Sort.Direction.ASC, "collectid");
-		return dao.findAll(pageable);
+
+		
+		return dao.findColPageByUid(uid, pageable);
 	}
 
 	@Override

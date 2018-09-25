@@ -139,9 +139,9 @@
 									});
 								});
 							</script>
-
+<% String img=request.getParameter("img"); %>
 							<div class="tb-booth tb-pic tb-s310">
-								<a href="${path}/images/01.jpg"><img src="${path}/images/01_mid.jpg" alt="细节展示放大镜特效" rel="${path}/images/01.jpg" class="jqzoom" /></a>
+								<a href="#"><img src="${path}/images/<%=img %>" alt="细节展示放大镜特效" rel="${path}/images/<%=img %>" class="jqzoom" /></a>
 							</div>
 							<ul class="tb-thumb" id="thumblist">
 								<li class="tb-selected">

@@ -1,6 +1,7 @@
 package com.yc.dao;
 
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -22,4 +23,6 @@ public interface CollectDao extends JpaRepository<Collect, Integer>{
 	@Query(nativeQuery=true,value="select count(*) from collect where uid=?")
 	Long countCol(Integer uid);
 
+	@Query(nativeQuery=true,value="select * from collect where uid=?1 order by ?#{#pageable}")
+	List<Collect> findColPageByUid(Integer uid,Pageable pageable);
 }
