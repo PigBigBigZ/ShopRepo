@@ -131,7 +131,7 @@
 								<a class="am-badge am-badge-danger am-round">降价</a>
 							</div>
 							<div class="s-content">
-							<c:forEach items="${datas.content}" var="t">
+							<c:forEach items="${datas}" var="t">
 								<div class="s-item-wrap">
 									<div class="s-item">
 
