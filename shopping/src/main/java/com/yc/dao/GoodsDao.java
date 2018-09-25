@@ -19,7 +19,7 @@ public interface GoodsDao extends JpaRepository<Goods, Integer>{
 	@Query(nativeQuery=true,value="select Gname,b.typename,a.Gprice,c.imgname from goods a LEFT JOIN gtype b on a.gtypeid=b.typeid LEFT JOIN (SELECT imgname,imgid from image) c on a.imgid=c.imgid where a.gtypeid=?" )
 	List<Object[]> findChildGoods(Integer gtypeid);
 	
-	@Query(nativeQuery=true,value="select Gname,b.typename,a.Gprice,c.imgname from goods a LEFT JOIN gtype b on a.gtypeid=b.typeid LEFT JOIN (SELECT imgname,imgid from image) c on a.imgid=c.imgid where a.gtypeid=?" )
+	@Query(nativeQuery=true,value="select Gname,b.typename,a.Gprice,c.imgname,a.Gsail,a.Gcount,a.gid from goods a LEFT JOIN gtype b on a.gtypeid=b.typeid LEFT JOIN (SELECT imgname,imgid from image) c on a.imgid=c.imgid where a.gtypeid=?" )
 	List<Object[]> findGoodsAndImg(Integer gtypeid);
 	
 	@Query(nativeQuery=true,value="select gtypeid from goods a LEFT JOIN gtype b on a.gtypeid=b.typeid GROUP BY gtypeid" )

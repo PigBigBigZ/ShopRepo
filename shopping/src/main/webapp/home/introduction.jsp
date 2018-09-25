@@ -124,7 +124,14 @@
 				</div>
 
 				<!--放大镜-->
-
+                <%
+            	String img = request.getParameter("op");
+            	String Gname = request.getParameter("Gname");
+            	String Gsail = request.getParameter("Gsail");
+            	String Gcount = request.getParameter("Gcount");
+            	String Gid = request.getParameter("Gid");
+            	String Gprice = request.getParameter("Gprice");
+                %>
 				<div class="item-inform">
 					<div class="clearfixLeft" id="clearcontent">
 
@@ -139,9 +146,9 @@
 									});
 								});
 							</script>
-<% String img=request.getParameter("img"); %>
+
 							<div class="tb-booth tb-pic tb-s310">
-								<a href="#"><img src="${path}/images/<%=img %>" alt="细节展示放大镜特效" rel="${path}/images/<%=img %>" class="jqzoom" /></a>
+								<a href="${path}/images/01.jpg"><img src="${path}/images/<%=img %>" alt="细节展示放大镜特效" rel="${path}/images/<%=img %>" class="jqzoom" /></a>
 							</div>
 							<ul class="tb-thumb" id="thumblist">
 								<li class="tb-selected">
@@ -171,19 +178,19 @@
 						<!--名称-->
 						<div class="tb-detail-hd">
 							<h1>	
-				 良品铺子 手剥松子218g 坚果炒货 巴西松子
+				<%=Gname %>
 	          </h1>
 						</div>
 						<div class="tb-detail-list">
 							<!--价格-->
 							<div class="tb-detail-price">
 								<li class="price iteminfo_price">
-									<dt>促销价</dt>
-									<dd><em>¥</em><b class="sys_item_price">56.90</b>  </dd>                                 
+									<dt>商品单价</dt>
+									<dd><em>¥</em><b class="sys_item_price"><%=Gprice %></b>  </dd>                                 
 								</li>
 								<li class="price iteminfo_mktprice">
-									<dt>原价</dt>
-									<dd><em>¥</em><b class="sys_item_mktprice">98.00</b></dd>									
+									<dt></dt>
+									<dd><em></em><b class="sys_item_mktprice"></b></dd>									
 								</li>
 								<div class="clear"></div>
 							</div>
@@ -192,10 +199,10 @@
 							<!--销量-->
 							<ul class="tm-ind-panel">
 								<li class="tm-ind-item tm-ind-sumCount canClick">
-									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count">6015</span></div>
+									<div class="tm-indcon"><span class="tm-label">累计销量</span><span class="tm-count"><%=Gsail %></span></div>
 								</li>
 								<li class="tm-ind-item tm-ind-reviewCount canClick tm-line3">
-									<div class="tm-indcon"><span class="tm-label">累计评价</span><span class="tm-count">640</span></div>
+									<div class="tm-indcon"><span class="tm-label"></span><span class="tm-count"></span></div>
 								</li>
 							</ul>
 							<div class="clear"></div>
@@ -224,7 +231,7 @@
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
 															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
-															<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
+															<span id="Stock" class="tb-hidden">库存<span class="stock"><%=Gcount %></span>件</span>
 														</dd>
 
 													</div>
@@ -258,7 +265,7 @@
 									<dt class="tb-metatit">.</dt>
 									<div class="gold-list">
 
-										<a href="javascript:void(0);" onclick="addCol(gid=${param.gid },uid=${sessionScope.logineduser.uid})"><span>添加收藏</span></a>
+										<a href="javascript:void(0);" onclick="addCol(gid=<%=Gid %> ,uid=${sessionScope.logineduser.uid})"><span>添加收藏</span></a>
 									  <h1>${param.msg }</h1>
 
 									</div>
@@ -345,21 +352,7 @@
 										<div class="clear"></div>
 									</div>
 
-									<div class="details">
-										<div class="attr-list-hd after-market-hd">
-											<h4>商品细节</h4>
-										</div>
-										<div class="twlistNews">
-											<img src="${path}/images/tw1.jpg" />
-											<img src="${path}/images/tw2.jpg" />
-											<img src="${path}/images/tw3.jpg" />
-											<img src="${path}/images/tw4.jpg" />
-											<img src="${path}/images/tw5.jpg" />
-											<img src="${path}/images/tw6.jpg" />
-											<img src="${path}/images/tw7.jpg" />
-										</div>
-									</div>
-									<div class="clear"></div>
+								
 
 								</div>
 

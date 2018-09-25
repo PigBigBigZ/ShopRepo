@@ -12,7 +12,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>首页</title> <%
+	<title>首页</title> 
+	<%
  	/*  List<Object[]> list =(List<Object[]>)request.getSession().getAttribute("list");
  	for(Object[] a:list){
  	   out.print(a[0]);
@@ -23,7 +24,7 @@
  	/* List<Object[]> list2=(List<Object[]>)session.getAttribute("GoodAndImg");
  	out.print(list2);
  	 */
- %>
+    %>
 
 	<c:set value="${pageContext.request.contextPath}" var="path"
 		scope="page" />
@@ -63,11 +64,11 @@
 						<%
 							} else {
 						%>
-						<a href="login.jsp" target="_top" class="h">亲，请登录</a>
+						<a href="login.html" target="_top" class="h">亲，请登录</a>
 						<%
 							}
 						%>
-						<a href="register.jsp" target="_top">免费注册</a>
+						<a href="register" target="_top">免费注册</a>
 					</div>
 				</div>
 			</ul>
@@ -511,15 +512,14 @@
 								</span>
 							</div>
 						</div>
+
 						<c:forEach items="${GoodsAndImgs.get(0)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?img=${a[3]}">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
-											
-										 <img   class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
+										 <img  class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
 									</a>
 								</div>
 							
@@ -543,12 +543,10 @@
 						<c:forEach items="${GoodsAndImgs.get(1)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?img=${a[3]} ">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
-											
-										 <img   class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
+										 <img  class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
 									</a>
 								</div>
 							
@@ -557,6 +555,7 @@
 			</c:forEach>
 			
 			<c:forEach items="${list2 }" var="l2" begin="2" end="2">
+			          
 						<div class="am-container ">
 							<div class="shopTitle gtid">
 								<h4>${l2.typename}</h4>
@@ -572,8 +571,7 @@
 						<c:forEach items="${GoodsAndImgs.get(2)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?img=${a[3]} ">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
 											
@@ -586,47 +584,6 @@
 			</c:forEach>
 			
 
-
-	<script type="text/css">
-          #search_box { background: white; opacity: 0.8; text-align:right };
-          #search_btn { background: #0f79be; margin-top: 6px; border-radius: 2px; border: 0px;  
-          width: 100px; line-height: 24px; color: white; };
-          #searchstr { font-size: 14px; height: 20px; }; 
-         .highlight { background: yellow; color: red; } ;
-          #tip { background: #ffc; border: 1px solid #999; width: 110px; text-align: center;  
-          display: none; font-size: 12px; }; 
-   </script>
-   
-	<script type="text/javascript">
-	(function($) { 
-	    $.fn.fixDiv = function(options) { 
-	        var defaultVal = { 
-	            top: 10 
-	        }; 
-	        var obj = $.extend(defaultVal, options); 
-	        $this = this; 
-	        var _top = $this.offset().top; 
-	        var _left = $this.offset().left; 
-	        $(window).scroll(function() { 
-	            var _currentTop = $this.offset().top; 
-	            var _scrollTop = $(document).scrollTop(); 
-	            if (_scrollTop > _top) { 
-	                $this.offset({ 
-	                    top: _scrollTop + obj.top, 
-	                    left: _left 
-	                }); 
-	            } else { 
-	                $this.offset({ 
-	                    top: _top, 
-	                    left: _left 
-	                }); 
-	            } 
-	        }); 
-	        return $this; 
-	    }; 
-	})(jQuery); 
-	
-	</script>
 	<script>
 		window.jQuery
 				|| document
@@ -635,8 +592,6 @@
 	<script type="text/javascript " src="${path}/basic/js/quick_links.js "></script>
 
 
+<%@ include file="/footer.jsp"%>
 
-
-<!-- 导入页尾 -->
-<%@ include file="/footer.jsp" %>
  		
