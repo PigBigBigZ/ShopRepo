@@ -12,7 +12,8 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>首页</title> <%
+	<title>首页</title> 
+	<%
  	/*  List<Object[]> list =(List<Object[]>)request.getSession().getAttribute("list");
  	for(Object[] a:list){
  	   out.print(a[0]);
@@ -23,7 +24,7 @@
  	/* List<Object[]> list2=(List<Object[]>)session.getAttribute("GoodAndImg");
  	out.print(list2);
  	 */
- %>
+    %>
 
 	<c:set value="${pageContext.request.contextPath}" var="path"
 		scope="page" />
@@ -515,7 +516,7 @@
 						<c:forEach items="${GoodsAndImgs.get(0)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="# ">
+									<a href="introduction.jsp?op=${a[3]}">
 										
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
@@ -544,7 +545,7 @@
 						<c:forEach items="${GoodsAndImgs.get(1)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="# ">
+									<a href="introduction.jsp?op=${a[3]}">
 										
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
@@ -573,7 +574,7 @@
 						<c:forEach items="${GoodsAndImgs.get(2)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="# ">
+									<a href="introduction.jsp?op=${a[3]}">
 										
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>

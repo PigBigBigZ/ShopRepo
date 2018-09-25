@@ -190,5 +190,10 @@ public class GoodsAction {
 		model.setAttribute("GoodsAndImgs", list);
 	}
 	
+	@RequestMapping("introduction.do")
+	public void findGoodsIntroduction(HttpSession model){
+		
+		
+	}
 
 }
