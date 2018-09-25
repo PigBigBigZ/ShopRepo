@@ -158,11 +158,7 @@
 			<div id="nav" class="navfull">
 				<div class="area clearfix">
 					<div class="category-content" id="guide_2">
-						<%-- <%
-									List<Gtype> list2=(List<Gtype>)request.getAttribute("list2");
-									/* String gtypename=list2.get(0).getTypename();
-									System.out.print(gtypename); */
-									%> --%>
+						
 						<div class="category">
 							<ul class="category-list" id="js_climit_li">
 								<c:forEach items="${list2 }" var="list2">

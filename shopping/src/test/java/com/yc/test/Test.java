@@ -78,9 +78,7 @@ public class Test {
 		String typenameString = list.get(0).getTypename();
 		System.out.println(typenameString);
 	}
-		/*
-		 * for(Gtype gtype:list){ System.out.println(gtype.getTypename()); }
-		 */
+		
 
 	public void testAddCollect(){
 		Collect collect=new Collect();

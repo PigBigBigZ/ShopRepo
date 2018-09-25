@@ -2,11 +2,24 @@ package com.yc.bean;
 
 import java.sql.Timestamp;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+@Entity
 public class Orderform {
-
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer oid;
 	private Timestamp Spdate;
+	
+	@OneToOne
+	@JoinColumn(name="uid")
 	private User user;
+	@OneToOne
+	@JoinColumn(name="addrid")
 	private Address address;
 	private Integer ostatus;
 	private Double allprice;
