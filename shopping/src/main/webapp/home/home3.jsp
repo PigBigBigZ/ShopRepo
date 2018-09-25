@@ -516,12 +516,10 @@
 						<c:forEach items="${GoodsAndImgs.get(0)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?op=${a[3]}">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
-											
-										 <img   class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
+										 <img  class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
 									</a>
 								</div>
 							
@@ -545,12 +543,10 @@
 						<c:forEach items="${GoodsAndImgs.get(1)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?op=${a[3]}">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
-											
-										 <img   class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
+										 <img  class="imgs" src="${path}/images/${a[3]}"  style="width:300px;height:250px;padding-left:50px;"/>
 									</a>
 								</div>
 							
@@ -559,6 +555,7 @@
 			</c:forEach>
 			
 			<c:forEach items="${list2 }" var="l2" begin="2" end="2">
+			          
 						<div class="am-container ">
 							<div class="shopTitle gtid">
 								<h4>${l2.typename}</h4>
@@ -574,8 +571,7 @@
 						<c:forEach items="${GoodsAndImgs.get(2)}" var="a">
 							
 								<div class="am-u-sm-5 am-u-md-3 am-u-lg-4 text-one "  style="width:350px;">
-									<a href="introduction.jsp?op=${a[3]}">
-										
+									<a href="introduction.jsp?op=${a[3]}&Gname=${a[0]}&Gsail=${a[4]}&Gcount=${a[5]}&Gid=${a[6]}&Gprice=${a[2]}">
 											<div class="sub-title " style="padding-left:50px;">${a[0]}</div>
 											<div class="sub-title " style="padding-left:50px;">仅售：¥  ${a[2]}</div>
 											
@@ -588,224 +584,14 @@
 			</c:forEach>
 			
 
-			<div class="footer ">
-				<div class="footer-hd ">
-					<p>
-						<a href="# ">恒望科技</a> <b>|</b> <a href="# ">商城首页</a> <b>|</b> <a
-							href="# ">支付宝</a> <b>|</b> <a href="# ">物流</a>
-					</p>
-				</div>
-				<div class="footer-bd ">
-					<p>
-						<a href="# ">关于恒望</a> <a href="# ">合作伙伴</a> <a href="# ">联系我们</a>
-						<a href="# ">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有. 更多模板
-							<a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a>
-							- Collect from <a href="http://www.cssmoban.com/" title="网页模板"
-							target="_blank">网页模板</a>
-						</em>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
-	<!--引导 -->
-
-	<div class="navCir">
-		<li class="active"><a href="home3.html"><i
-				class="am-icon-home "></i>首页</a></li>
-		<li><a href="sort.html"><i class="am-icon-list"></i>分类</a></li>
-		<li><a href="shopcart.html"><i
-				class="am-icon-shopping-basket"></i>购物车</a></li>
-		<li><a href="${path}/person/index.html"><i
-				class="am-icon-user"></i>我的</a></li>
-	</div>
-	<!--菜单 -->
-	<div class=tip>
-		<div id="sidebar">
-			<div id="wrap">
-				<div id="prof" class="item ">
-					<a href="${path}/person/index.html"> <span class="setting "></span>
-					</a>
-					<div class="ibar_login_box status_login ">
-						<div class="avatar_box ">
-							<p class="avatar_imgbox ">
-								<img src="${path}/images/no-img_mid_.jpg " />
-							</p>
-							<ul class="user_info ">
-								<li>用户名：sl1903</li>
-								<li>级&nbsp;别：普通会员</li>
-							</ul>
-						</div>
-						<div class="login_btnbox ">
-							<a href="${path}/person/order.html" class="login_order ">我的订单</a>
-							<a href="${path}/person/collection.html" class="login_favorite ">我的收藏</a>
-						</div>
-						<i class="icon_arrow_white "></i>
-					</div>
-
-				</div>
-				<div id="shopCart " class="item ">
-					<a href="shopcart.html"> <span class="message "></span>
-					</a>
-					<p>购物车</p>
-					<p class="cart_num ">0</p>
-				</div>
-				<div id="asset " class="item ">
-					<a href="# "> <span class="view "></span>
-					</a>
-					<div class="mp_tooltip ">
-						我的资产 <i class="icon_arrow_right_black "></i>
-					</div>
-				</div>
-
-				<div id="foot " class="item ">
-					<a href="${path}/person/foot.html"> <span class="zuji "></span>
-					</a>
-					<div class="mp_tooltip ">
-						我的足迹 <i class="icon_arrow_right_black "></i>
-					</div>
-				</div>
-
-				<div id="brand " class="item ">
-					<a href="${path}/person/collection.html"> <span class="wdsc "><img
-							src="${path}/images/wdsc.png " /></span>
-					</a>
-					<div class="mp_tooltip ">
-						我的收藏 <i class="icon_arrow_right_black "></i>
-					</div>
-				</div>
-
-				<div id="broadcast " class="item ">
-					<a href="# "> <span class="chongzhi "><img
-							src="${path}/images/chongzhi.png " /></span>
-					</a>
-					<div class="mp_tooltip ">
-						我要充值 <i class="icon_arrow_right_black "></i>
-					</div>
-				</div>
-
-				<div class="quick_toggle ">
-					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>
-						<div class="mp_tooltip ">
-							客服中心<i class="icon_arrow_right_black "></i>
-						</div></li>
-					<!--二维码 -->
-					<li class="qtitem "><a href="#none "><span
-							class="mpbtn_qrcode "></span></a>
-						<div class="mp_qrcode " style="display: none;">
-							<img src="${path}/images/weixin_code_145.png " /><i
-								class="icon_arrow_white "></i>
-						</div></li>
-					<li class="qtitem "><a href="#top " class="return_top "><span
-							class="top "></span></a></li>
-				</div>
-
-				<!--回到顶部 -->
-				<div id="quick_links_pop " class="quick_links_pop hide "></div>
-
-			</div>
-
-		</div>
-		<div id="prof-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>我</div>
-		</div>
-		<div id="shopCart-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>购物车</div>
-		</div>
-		<div id="asset-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>资产</div>
-
-			<div class="ia-head-list ">
-				<a href="# " target="_blank " class="pl ">
-					<div class="num ">0</div>
-					<div class="text ">优惠券</div>
-				</a> <a href="# " target="_blank " class="pl ">
-					<div class="num ">0</div>
-					<div class="text ">红包</div>
-				</a> <a href="# " target="_blank " class="pl money ">
-					<div class="num ">￥0</div>
-					<div class="text ">余额</div>
-				</a>
-			</div>
-
-		</div>
-		<div id="foot-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>足迹</div>
-		</div>
-		<div id="brand-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>收藏</div>
-		</div>
-		<div id="broadcast-content " class="nav-content ">
-			<div class="nav-con-close ">
-				<i class="am-icon-angle-right am-icon-fw "></i>
-			</div>
-			<div>充值</div>
-		</div>
-	</div>
-	<script type="text/css">
-          #search_box { background: white; opacity: 0.8; text-align:right };
-          #search_btn { background: #0f79be; margin-top: 6px; border-radius: 2px; border: 0px;  
-          width: 100px; line-height: 24px; color: white; };
-          #searchstr { font-size: 14px; height: 20px; }; 
-         .highlight { background: yellow; color: red; } ;
-          #tip { background: #ffc; border: 1px solid #999; width: 110px; text-align: center;  
-          display: none; font-size: 12px; }; 
-   </script>
-   
-	<script type="text/javascript">
-	(function($) { 
-	    $.fn.fixDiv = function(options) { 
-	        var defaultVal = { 
-	            top: 10 
-	        }; 
-	        var obj = $.extend(defaultVal, options); 
-	        $this = this; 
-	        var _top = $this.offset().top; 
-	        var _left = $this.offset().left; 
-	        $(window).scroll(function() { 
-	            var _currentTop = $this.offset().top; 
-	            var _scrollTop = $(document).scrollTop(); 
-	            if (_scrollTop > _top) { 
-	                $this.offset({ 
-	                    top: _scrollTop + obj.top, 
-	                    left: _left 
-	                }); 
-	            } else { 
-	                $this.offset({ 
-	                    top: _top, 
-	                    left: _left 
-	                }); 
-	            } 
-	        }); 
-	        return $this; 
-	    }; 
-	})(jQuery); 
-	
-	</script>
 	<script>
 		window.jQuery
 				|| document
 						.write('<script src="basic/js/jquery.min.js "><\/script>');
 	</script>
 	<script type="text/javascript " src="${path}/basic/js/quick_links.js "></script>
-</body>
-</html>
+
+
+<%@ include file="/footer.jsp"%>
 
  		
