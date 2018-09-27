@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Entity //实体类注解
 @Table(name="user") //配置表名
 public class User {
-
 	@Id  //主键注解
 	@GeneratedValue(strategy=GenerationType.AUTO)  //配置主键值生成机制
 	private Integer uid;

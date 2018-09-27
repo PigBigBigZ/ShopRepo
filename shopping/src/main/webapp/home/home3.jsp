@@ -13,18 +13,7 @@
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<title>首页</title> 
-	<%
- 	/*  List<Object[]> list =(List<Object[]>)request.getSession().getAttribute("list");
- 	for(Object[] a:list){
- 	   out.print(a[0]);
- 	   out.print(a[1]);
- 	   out.print("&nbsp;");
- 	} */
-
- 	/* List<Object[]> list2=(List<Object[]>)session.getAttribute("GoodAndImg");
- 	out.print(list2);
- 	 */
-    %>
+	
 
 	<c:set value="${pageContext.request.contextPath}" var="path"
 		scope="page" />
@@ -58,17 +47,18 @@
 				<div class="topMessage">
 					<div class="menu-hd">
 						<%
-							if (session.getAttribute("loginedUser") != null) {
+							if (session.getAttribute("logineduser") != null) {
 						%>
-						欢迎您： ${loginedUser.uname }
+						欢迎您： ${logineduser.uname } &nbsp; &nbsp;
 						<%
 							} else {
 						%>
-						<a href="login.html" target="_top" class="h">亲，请登录</a>
+						<a href="login.jsp" target="_top" class="h">亲，请登录 &nbsp; &nbsp;</a>
 						<%
 							}
 						%>
-						<a href="register" target="_top">免费注册</a>
+						
+						<a href="register.jsp" target="_top">免费注册</a>
 					</div>
 				</div>
 			</ul>
@@ -152,8 +142,6 @@
 				<span class="all-goods">全部分类</span>
 			</div>
 
-
-
 			<!--侧边导航 -->
 			<div id="nav" class="navfull">
 				<div class="area clearfix">
@@ -166,8 +154,8 @@
 										<div class="category-info edit" edit="${list2.typeid}"
 											id="findChildGood">
 											<h3 class="category-name b-category-name">
-												<i><img src="${path}/images/cake.png"></i><a
-													class="ml-22" title="点心">${list2.typename}</a>
+												<i><img src="${path}/images/cake.png"></i>
+												<a class="ml-22" title="点心">${list2.typename}</a>
 											</h3>
 											<em>&gt;</em>
 										</div>
@@ -347,8 +335,8 @@
 					</div>
 
 					<div class="member-logout">
-						<a class="am-btn-warning btn" href="login.html">登录</a> <a
-							class="am-btn-warning btn" href="register.html">注册</a>
+						<a class="am-btn-warning btn" href="login.jsp">登录</a> 
+						<a class="am-btn-warning btn" href="register.jsp">注册</a>
 					</div>
 					<div class="member-login">
 						<a href="${path}/person/order.html"><strong>0</strong>待收货</a> <a
@@ -501,8 +489,8 @@
 								<h4>${l2.typename}</h4>
 								<h3>纯天然，让你融入大自然</h3>
 								<div class="today-brands ">
-									<a href="# ">葡萄</a> <a href="# ">苹果</a> <a href="# ">香蕉 </a> <a
-										href="# ">西瓜</a> <a href="# ">菠萝</a> <a href="# ">梨子</a>
+									<a href="# ">葡萄</a> <a href="# ">苹果</a> <a href="# ">香蕉 </a> 
+									<a href="# ">西瓜</a> <a href="# ">菠萝</a> <a href="# ">梨子</a>
 								</div>
 								<span class="more "> <a class="more-link " href="# ">更多美味</a>
 								</span>

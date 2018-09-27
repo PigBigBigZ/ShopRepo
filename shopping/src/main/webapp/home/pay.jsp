@@ -61,10 +61,10 @@
 
 				<div class="search-bar pr">
 					<a name="index_none_header_sysc" href="#"></a>
-					<form>
+					<!-- <form>
 						<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
 						<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
-					</form>
+					</form> -->
 				</div>
 			</div>
 
@@ -80,23 +80,23 @@
 						<div class="clear"></div>
 						<ul>
 							<div class="per-border"></div>
-							<li class="user-addresslist defaultAddr">
+							<li class="user-addresslist defaultAddr edit">
 
 								<div class="address-left">
 									<div class="user DefaultAddr">
 
 										<span class="buy-address-detail">   
-                   <span class="buy-user">艾迪 </span>
-										<span class="buy-phone">15871145629</span>
+                   <span class="buy-user name">艾迪 </span>
+										<span class="buy-phone phone">12871145629</span>
 										</span>
 									</div>
 									<div class="default-address DefaultAddr">
 										<span class="buy-line-title buy-line-title-type">收货地址：</span>
 										<span class="buy--address-detail">
-								   <span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span>
+								   <span class="province p" >湖南</span>省
+										<span class="city c">岳阳</span>市
+										<span class="dist d">湘阴</span>区
+										<span class="street s">雄楚大道555号(中南财经政法大学)</span>
 										</span>
 
 										</span>
@@ -119,22 +119,22 @@
 
 							</li>
 							<div class="per-border"></div>
-							<li class="user-addresslist">
+							<li class="user-addresslist edit">
 								<div class="address-left">
 									<div class="user DefaultAddr">
 
 										<span class="buy-address-detail">   
-                   <span class="buy-user">艾迪 </span>
-										<span class="buy-phone">15871145629</span>
+                                        <span class="buy-user name">艾迪2 </span>
+										<span class="buy-phone phone">15571145629</span>
 										</span>
 									</div>
-									<div class="default-address DefaultAddr">
+									<div class="default-address DefaultAddr ">
 										<span class="buy-line-title buy-line-title-type">收货地址：</span>
 										<span class="buy--address-detail">
-								   <span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">武昌</span>区
-										<span class="street">东湖路75号众环大厦2栋9层902</span>
+								   <span class="province p">湖北</span>省
+										<span class="city c">武汉</span>市
+										<span class="dist d">武昌</span>区
+										<span class="street s">东湖路75号众环大厦2栋9层902</span>
 										</span>
 
 										</span>
@@ -208,6 +208,7 @@
 												<li class="td td-price">
 													<div class="item-price price-promo-promo">
 														<div class="price-content">
+														    <em class="J_Price price-now">单价:</em>
 															<em class="J_Price price-now">${param.Gprice }</em>
 														</div>
 													</div>
@@ -220,7 +221,7 @@
 														<span class="phone-title">购买数量</span>
 														<div class="sl" id="price">
 															<input class="min am-btn" name="jian" type="button" value="-"  />
-															<input  class="text_box" name="price1" type="text" value="3" style="width:30px;" />
+															<input  class="text_box" name="price1" type="text" value="1" style="width:30px;" />
 															<input class="add am-btn" name="jia" type="button" value="+" />
 														</div>
 														
@@ -229,6 +230,7 @@
 											</li>
 											<li class="td td-sum">
 												<div class="td-inner">
+												    <em tabindex="0" class="J_ItemSum number" >总价:</em>
 													<em tabindex="0" class="J_ItemSum number" id="count">117.00</em>
 												</div>
 											</li>
@@ -249,70 +251,7 @@
 							</div>
 							<div class="clear"></div>
 							<div class="pay-total">
-						<!--留言-->
-							<div class="order-extra">
-								<div class="order-user-info">
-									<div id="holyshit257" class="memo">
-										<label>买家留言：</label>
-										<input type="text" title="选填,对本次交易的说明（建议填写已经和卖家达成一致的说明）" placeholder="选填,建议填写和卖家达成一致的说明" class="memo-input J_MakePoint c2c-text-default memo-close">
-										<div class="msg hidden J-msg">
-											<p class="error">最多输入500个字符</p>
-										</div>
-									</div>
-								</div>
-
-							</div>
-							<!--优惠券 -->
-							<div class="buy-agio">
-								<li class="td td-coupon">
-
-									<span class="coupon-title">优惠券</span>
-									<select data-am-selected>
-										<option value="a">
-											<div class="c-price">
-												<strong>￥8</strong>
-											</div>
-											<div class="c-limit">
-												【消费满95元可用】
-											</div>
-										</option>
-										<option value="b" selected>
-											<div class="c-price">
-												<strong>￥3</strong>
-											</div>
-											<div class="c-limit">
-												【无使用门槛】
-											</div>
-										</option>
-									</select>
-								</li>
-
-								<li class="td td-bonus">
-
-									<span class="bonus-title">红包</span>
-									<select data-am-selected>
-										<option value="a">
-											<div class="item-info">
-												¥50.00<span>元</span>
-											</div>
-											<div class="item-remainderprice">
-												<span>还剩</span>10.40<span>元</span>
-											</div>
-										</option>
-										<option value="b" selected>
-											<div class="item-info">
-												¥50.00<span>元</span>
-											</div>
-											<div class="item-remainderprice">
-												<span>还剩</span>50.00<span>元</span>
-											</div>
-										</option>
-									</select>
-
-								</li>
-
-							</div>
-							<div class="clear"></div>
+						
 							</div>
 							<!--含运费小计 -->
 							<div class="buy-point-discharge ">
@@ -322,12 +261,13 @@
 							</div>
 
 							<!--信息 -->
+							<form  method="post">
 							<div class="order-go clearfix">
 								<div class="pay-confirm clearfix">
 									<div class="box">
 										<div tabindex="0" id="holyshit267" class="realPay"><em class="t">实付款：</em>
 											<span class="price g_price ">
-                                    <span>¥</span> <em class="style-large-bold-red " id="J_ActualFee" >244.00</em>
+                                    <span>¥</span> <em class="style-large-bold-red " id="J_ActualFee" name="AllCount" >244.00</em>
 											</span>
 										</div>
 
@@ -336,18 +276,18 @@
 											<p class="buy-footer-address">
 												<span class="buy-line-title buy-line-title-type">寄送至：</span>
 												<span class="buy--address-detail">
-								   <span class="province">湖北</span>省
-												<span class="city">武汉</span>市
-												<span class="dist">洪山</span>区
-												<span class="street">雄楚大道666号(中南财经政法大学)</span>
+								   <span class="province" id="sf">湖北</span>省
+												<span class="city" id="cs">武汉</span>市
+												<span class="dist" id="dq">洪山</span>区
+												<span class="street" id="jd">雄楚大道666号(中南财经政法大学)</span>
 												</span>
 												</span>
 											</p>
 											<p class="buy-footer-address">
 												<span class="buy-line-title">收货人：</span>
 												<span class="buy-address-detail">   
-                                         <span class="buy-user">艾迪 </span>
-												<span class="buy-phone">15871145629</span>
+                                         <span class="buy-user" id="name">艾迪 </span>
+												<span class="buy-phone " id="phone">15871145629</span>
 												</span>
 											</p>
 										</div>
@@ -355,12 +295,17 @@
 
 									<div id="holyshit269" class="submitOrder">
 										<div class="go-btn-wrap">
-											<a id="J_Go" href="success.html" class="btn-go" tabindex="0" title="点击此按钮，提交订单">提交订单</a>
+										<a id="J_Go" type="submit" class="btn-go" tabindex="0" title="点击此按钮，提交订单" onclick="order()">提交订单</a>
+										    <!-- <a>
+											<input id="J_Go" type="submit" class="btn-go" tabindex="0" title="点击此按钮，提交订单" onclick="order()"></input></a> -->
 										</div>
 									</div>
 									<div class="clear"></div>
 								</div>
 							</div>
+							
+							</form>
+							
 						</div>
 
 						<div class="clear"></div>
@@ -504,8 +449,75 @@
 					 sj.text("");
 					 sj.append(total);
 	      });
-				
 		
+		 function order(){
+			         var sfk=$('#J_ActualFee').text();
+			         var address=$('#sf').html()+"  "+$('#cs').html()+"  "+$('#dq').html()+"  "+$('#jd').html();
+			         var name=$('#name').html();
+			         var phone=$('#phone').html();
+			       	 document.forms[0].action="../addOrderform.do?AllCount="+sfk+"&address="+address+"&name="+name+"&phone="+phone;
+		    		 document.forms[0].submit();
+		    	}
+		  
+		 
+		 $(".edit").on("click", function(){
+			 var p=$('#sf');
+			 var c=$('#cs');
+			 var d=$('#dq');
+			 var s=$('#jd');
+			 var name=$('#name');
+			 var phone=$('#phone');
+			 p.text("");
+			 c.text("");
+			 d.text("");
+			 s.text("");
+			 name.text("");
+			 phone.text("");
+			 var oldp=$(this).find('.p').html();
+			 var oldc=$(this).find('.c').html();
+			 var oldd=$(this).find('.d').html();
+			 var olds=$(this).find('.s').html();
+			 var oldname=$(this).find('.name').html();
+			 var oldphone=$(this).find('.phone').html();
+			 
+			 p.append(oldp);
+			 c.append(oldc);
+			 d.append(oldd);
+			 s.append(olds);
+			 name.append(oldname);
+			 phone.append(oldphone);
+			 });
+		 
+			/* <div class="address-left">
+			<div class="user DefaultAddr">
+
+				<span class="buy-address-detail">   
+                <span class="buy-user">艾迪2 </span>
+				<span class="buy-phone">15571145629</span>
+				</span>
+			</div>
+			<div class="default-address DefaultAddr ">
+				<span class="buy-line-title buy-line-title-type">收货地址：</span>
+				<span class="buy--address-detail">
+		   <span class="province p">湖北</span>省
+				<span class="city c">武汉</span>市
+				<span class="dist d">武昌</span>区
+				<span class="street s">东湖路75号众环大厦2栋9层902</span>
+				</span>
+
+				</span>
+			</div>
+			<ins class="deftip hidden">默认地址</ins>
+		</div> */
+			
+		 
+		/*  <span class="province p" >湖北</span>省
+			<span class="city c">武汉</span>市
+			<span class="dist d">洪山</span>区
+			<span class="street s">雄楚大道666号(中南财经政法大学)</span>
+			</span> */
+		
+
 		
 		
 	    

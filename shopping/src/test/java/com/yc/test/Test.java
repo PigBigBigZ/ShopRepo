@@ -1,5 +1,6 @@
 package com.yc.test;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,11 +13,15 @@ import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.HelloApplication;
+import com.yc.bean.Address;
 import com.yc.bean.Collect;
 import com.yc.bean.Goods;
 import com.yc.bean.Gtype;
 import com.yc.bean.Image;
+import com.yc.bean.Orderform;
 import com.yc.bean.User;
+import com.yc.biz.AddressBiz;
+import com.yc.biz.OrderBiz;
 import com.yc.biz.impl.CollectBizImpl;
 import com.yc.biz.impl.GoodsBizImpl;
 import com.yc.biz.impl.GtypeBizImpl;
@@ -33,6 +38,12 @@ public class Test {
 
 	@Resource
     CollectBizImpl cbiz;
+	
+	@Resource 
+	OrderBiz obiz;
+	
+	@Resource
+	AddressBiz abiz;
 
 	@org.junit.Test
 	public void testAddGoods() {
@@ -105,7 +116,7 @@ public class Test {
 
 	}
 
-	@SuppressWarnings("null")
+	
 	@org.junit.Test
 	public void testTypeid() {
 		List<Integer> list1 = biz.GroupByTypeid();
@@ -121,8 +132,30 @@ public class Test {
 		
 			for(Object[] b:list.get(0)){
 				System.out.println(b[0]);
-			
-			
+		}
+	}
+	
+	@org.junit.Test
+	public void testAddOrder(){
+		Orderform orderform=new Orderform();
+		Address address=new Address();
+		address.setAddrid(1);
+		orderform.setAddress(address);
+		orderform.setAllprice(15.0);
+		orderform.setOstatus(2);
+		orderform.setSpdate(new Timestamp(System.currentTimeMillis()));
+		User user=new User();
+		user.setUid(2);
+		orderform.setUser(user);
+		obiz.insertOrder(orderform);
+	}
+	
+	@org.junit.Test
+	public void testFindAddressByUid(){
+		Integer uid=2;
+		List<Address> list=abiz.findByUid(uid);
+		for(Address a:list){
+			System.out.println(a);
 		}
 	}
 
