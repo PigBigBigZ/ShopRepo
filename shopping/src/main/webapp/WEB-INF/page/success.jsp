@@ -66,8 +66,7 @@
          <p>联系电话：${param.phone }</p>
          <p>收货地址：${param.address }</p>
        </div>
-             请认真核对您的收货信息，如有错误请联系客服
-                               
+                请认真核对您的收货信息，如有错误请联系客服
      </ul>
      <div class="option">
        <span class="info">您可以</span>

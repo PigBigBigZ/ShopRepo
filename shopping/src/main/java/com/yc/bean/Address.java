@@ -17,6 +17,52 @@ public class Address {
 	private User user;
 	private String address;
 	private String phone;
+	private String province;
+	private String city;
+	private String dist;
+	private String street;
+	private String addname;
+	
+
+	public String getAddname() {
+		return addname;
+	}
+
+	public void setAddname(String addname) {
+		this.addname = addname;
+	}
+
+	public String getProvince() {
+		return province;
+	}
+
+	public void setProvince(String province) {
+		this.province = province;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getDist() {
+		return dist;
+	}
+
+	public void setDist(String dist) {
+		this.dist = dist;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
 
 	public int getAddrid() {
 		return addrid;
@@ -53,7 +99,12 @@ public class Address {
 	@Override
 	public String toString() {
 		return "Address [addrid=" + addrid + ", user=" + user + ", address="
-				+ address + ", phone=" + phone + "]";
+				+ address + ", phone=" + phone + ", province=" + province
+				+ ", city=" + city + ", dist=" + dist + ", street=" + street
+				+ ", addname=" + addname + "]";
 	}
 
+	
+
+	
 }

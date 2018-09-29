@@ -21,4 +21,9 @@ public class AddressBizImpl implements AddressBiz {
 	public List<Address> findByUid(Integer uid) {
 		return dao.findByUid(uid);
 	}
+
+	
+	public void deleteAddress(Integer addrid) {
+		dao.deleteAddress(addrid);
+	}
 }

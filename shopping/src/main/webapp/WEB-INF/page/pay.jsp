@@ -24,7 +24,7 @@
 		    String img = request.getParameter("img");
 			String Gname = request.getParameter("Gname");
 			String Gprice = request.getParameter("Gprice");
-		  %>
+         %>
 		
 	<script>
 	    $(function(){
@@ -32,11 +32,12 @@
 		   $.ajax({
 			   url:"../addAddress.do",
 			   success:function(data){
-				 
+				   
 			   }
 		   });
 	   });  
 	</script>
+	
   
 	</head>
    
@@ -139,6 +140,9 @@
 						<div class="clear"></div>
 					</div>
 					
+
+					
+
 					<!--订单 -->
 					<div class="concent">
 						
@@ -358,6 +362,9 @@
 			<div class="clear"></div>
 			
 			<script type="text/javascript">
+			
+			
+			
 			
 			function addAddress(){
 				var username=$('#user-name').val();

@@ -262,33 +262,6 @@
 			});
 		});
 		
-	 
-
-		
-		
-		
-		/* $(".document").ready(function() {
-					var id = $(".gtid").attr("gtid");
-					var $id = $(".gtid"); 
-					$.post({
-								url : "../findGoodsAndImgs.do",
-								data : "gtypeid=" + id,
-								success : function(data) {
-								}
-							});
-				});
- */
-		
-		
-		
-		
-		/* $(document).ready(function() {
-			var id = $("#gtid").attr("gtid");
-			var $id = $(this);
-			alert($id.val);
-			$.post('../findChildGoods.do', {'gtypeid':2}, function(data) {
-			});
-		}); */
 		
 	
 	</script>

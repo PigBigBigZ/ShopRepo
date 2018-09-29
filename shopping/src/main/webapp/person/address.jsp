@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>   
 <!DOCTYPE html>
 <html>
 
@@ -13,11 +16,21 @@
 		<link href="../css/personal.css" rel="stylesheet" type="text/css">
 		<link href="../css/addstyle.css" rel="stylesheet" type="text/css">
 		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
+		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js" type="text/javascript"></script>
+		
+		<script type="text/javascript" src="../AmazeUI-2.4.2/assets/js/geo.js"></script>
 
-	</head>
+        <script>
+	    $(function(){
+		   $.ajax({
+			   url:"../addAddress.do",
+			   success:function(data){}
+		   });
+	     });  
+	</script>
+</head>
 
-	<body>
+	<body onload="setup();preselect();promptinfo();">
 		<!--头 -->
 		<header>
 			<article>
@@ -74,15 +87,9 @@
 			<div class="nav-cont">
 				<ul>
 					<li class="index"><a href="#">首页</a></li>
-					<li class="qc"><a href="#">闪购</a></li>
-					<li class="qc"><a href="#">限时抢</a></li>
-					<li class="qc"><a href="#">团购</a></li>
-					<li class="qc last"><a href="#">大包装</a></li>
+					
 				</ul>
-				<div class="nav-extra">
-					<i class="am-icon-user-secret am-icon-md nav-user"></i><b></b>我的福利
-					<i class="am-icon-angle-right" style="padding-left: 10px;"></i>
-				</div>
+				
 			</div>
 		</div>
 		<b class="line"></b>
@@ -99,67 +106,44 @@
 						<hr/>
 						<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
 
-							<li class="user-addresslist defaultAddr">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
-								</div>
-								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
-								</div>
-							</li>
+					<c:forEach items="${addresslist }" var="a">
+							<li class="user-addresslist defaultAddr edit">
 
-							<li class="user-addresslist">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
+								<div class="address-left">
+									<div class="user DefaultAddr">
+										<span class="buy-address-detail"> 
+										<span class="buy-user name">收货人:</span>  
+                                        <span class="buy-user name">${a.addname}</span>
+                                        <br>
+                                        <span class="buy-phone phone">电  话:</span>
+										<span class="buy-phone phone">${a.phone}</span>
+										</span>
+									</div>
+									<div class="default-address DefaultAddr">
+										<span class="buy-line-title buy-line-title-type">收货地址：</span>
+										<span class="buy--address-detail">
+								   <span class="province p" >${a.province}</span>
+										<span class="city c">${a.city }</span>
+										<span class="dist d">${a.dist }</span>
+										<span class="street s">${a.street}</span>
+										<span class="street xiangxi">${a.address}</span>
+										</span>
+									</div>
+									
 								</div>
+								<div class="address-right">
+									<a href="../person/address.html">
+										<span class="am-icon-angle-right am-icon-lg"></span></a>
+								</div>
+								<div class="clear"></div>
+
 								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
+									<a href="${pageContext.request.contextPath }/deleteAddress.do?addrid=${a.addrid}" onclick="delClick(this);">删除</a>
 								</div>
 							</li>
-							<li class="user-addresslist">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
-								</div>
-								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
-								</div>
-							</li>
+							</c:forEach>
+
+							
 						</ul>
 						<div class="clear"></div>
 						<a class="new-abtn-type" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0}">添加新地址</a>
@@ -175,50 +159,53 @@
 								<hr/>
 
 								<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-									<form class="am-form am-form-horizontal">
+									<form class="am-form am-form-horizontasl" action="${pageContext.request.contextPath }/address.do" method="post"  >
 
 										<div class="am-form-group">
 											<label for="user-name" class="am-form-label">收货人</label>
 											<div class="am-form-content">
-												<input type="text" id="user-name" placeholder="收货人">
+												<input type="text" id="user-name" placeholder="收货人" name="username">
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<label for="user-phone" class="am-form-label">手机号码</label>
 											<div class="am-form-content">
-												<input id="user-phone" placeholder="手机号必填" type="email">
+												<input id="user-phone" placeholder="手机号必填" type="text" name="userphone">
 											</div>
 										</div>
+										
+										
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
 											<div class="am-form-content address">
-												<select data-am-selected>
-													<option value="a">浙江省</option>
-													<option value="b" selected>湖北省</option>
-												</select>
-												<select data-am-selected>
-													<option value="a">温州市</option>
-													<option value="b" selected>武汉市</option>
-												</select>
-												<select data-am-selected>
-													<option value="a">瑞安区</option>
-													<option value="b" selected>洪山区</option>
-												</select>
+
+												<select name="sf" id="s1" class='province' msgEmpty="请选择省份" >
+													<option  name="sf">请选择省份</option>
+												</select> 
+												<select name="cs" id="s2" class='city' msgEmpty="请选择城市" >
+													<option  name="cs">请选择城市</option>
+												</select> 
+												<select name="dq" id="s3" class='town' msgEmpty="请选择地区" >
+													<option  name="dq">请选择地区</option>
+												</select>  
+										 
 											</div>
 										</div>
+										
+										
 
 										<div class="am-form-group">
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
-												<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
+												<textarea class="" rows="3" id="user-intro" name="userintro" placeholder="输入详细地址"></textarea>
 												<small>100字以内写出你的详细地址...</small>
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<div class="am-u-sm-9 am-u-sm-push-3">
-												<a class="am-btn am-btn-danger">保存</a>
+												<input class="am-btn am-btn-danger" type="submit" value="保存"/>
 												<a href="javascript: void(0)" class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
 											</div>
 										</div>

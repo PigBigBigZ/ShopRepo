@@ -8,4 +8,6 @@ public interface AddressBiz {
     public void saveAddress(Address address);
     
     public List<Address> findByUid(Integer uid);
+    
+    public void deleteAddress(Integer addrid);
 }

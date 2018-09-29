@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.yc.HelloApplication;
@@ -128,8 +127,7 @@ public class Test {
 				list.add(list2);
 			}
 		}
-		int i=0;
-		
+	
 			for(Object[] b:list.get(0)){
 				System.out.println(b[0]);
 		}
@@ -155,7 +153,8 @@ public class Test {
 		Integer uid=2;
 		List<Address> list=abiz.findByUid(uid);
 		for(Address a:list){
-			System.out.println(a);
+			System.out.println(a.getProvince());
+			//System.out.println(a);
 		}
 	}
 

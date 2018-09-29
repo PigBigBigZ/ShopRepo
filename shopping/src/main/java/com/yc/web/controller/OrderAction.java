@@ -19,6 +19,7 @@ import com.yc.biz.impl.OrderBizImpl;
 public class OrderAction {
   @Resource OrderBizImpl oBizImpl;
   
+  
   @RequestMapping("addOrderform.do")
   public String AddOrderform(HttpSession session,Double AllCount){
 	//String AllCount=request.getParameter("AllCount");
